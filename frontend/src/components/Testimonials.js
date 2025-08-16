@@ -7,6 +7,13 @@ const Testimonials = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   useEffect(() => {
     fetchTestimonials();
   }, []);
