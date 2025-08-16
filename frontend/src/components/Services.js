@@ -16,6 +16,13 @@ const Services = () => {
     'scissors': Scissors
   };
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   useEffect(() => {
     fetchServices();
   }, []);
