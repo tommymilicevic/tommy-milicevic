@@ -83,21 +83,21 @@ const Footer = () => {
             <div className="contact-info">
               <div className="contact-item">
                 <Phone size={16} />
-                <span>(555) 123-4567</span>
+                <span>{companyInfo?.phone || "(555) 123-4567"}</span>
               </div>
               <div className="contact-item">
                 <Mail size={16} />
-                <span>info@cleanproservices.com</span>
+                <span>{companyInfo?.email || "info@cleanproservices.com"}</span>
               </div>
               <div className="contact-item">
                 <MapPin size={16} />
-                <span>Greater Metro Area</span>
+                <span>{companyInfo?.address || "Canberra, Australian Capital Territory (ACT)"}</span>
               </div>
             </div>
             <div className="business-hours">
               <h5>Business Hours</h5>
-              <p>Mon-Sat: 7AM-7PM</p>
-              <p>Sunday: 9AM-5PM</p>
+              <p>{companyInfo?.business_hours?.weekdays || "Mon-Sat: 7AM-7PM"}</p>
+              <p>{companyInfo?.business_hours?.sunday || "Sunday: 9AM-5PM"}</p>
             </div>
           </div>
         </div>
