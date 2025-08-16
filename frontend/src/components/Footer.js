@@ -83,11 +83,11 @@ const Footer = () => {
             <div className="contact-info">
               <div className="contact-item">
                 <Phone size={16} />
-                <span>{companyInfo?.phone || "(555) 123-4567"}</span>
+                <span>{companyInfo?.phone || "0450515119"}</span>
               </div>
               <div className="contact-item">
                 <Mail size={16} />
-                <span>{companyInfo?.email || "info@cleanproservices.com"}</span>
+                <span>{companyInfo?.email || "AurexExteriors@gmail.com"}</span>
               </div>
               <div className="contact-item">
                 <MapPin size={16} />
