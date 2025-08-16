@@ -140,13 +140,13 @@ const Contact = () => {
       icon: <Phone size={24} />,
       title: "Call Mo",
       info: "0424 910 154",
-      subtitle: "Operations Manager"
+      subtitle: "Owner"
     },
     {
       icon: <Phone size={24} />,
       title: "Call Tom", 
       info: "0450 515 119",
-      subtitle: "Service Manager"
+      subtitle: "Owner"
     },
     {
       icon: <Mail size={24} />,
