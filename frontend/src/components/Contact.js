@@ -145,7 +145,7 @@ const Contact = () => {
     {
       icon: <Phone size={24} />,
       title: "Call Tom", 
-      info: "0450515119",
+      info: "0450 515 119",
       subtitle: "Service Manager"
     },
     {
