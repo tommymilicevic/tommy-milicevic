@@ -38,10 +38,10 @@ const Hero = () => {
             <div className="hero-rating">
               <div className="stars">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={16} fill="var(--primary-black)" />
+                  <Star key={i} size={16} fill={i < 4 ? "var(--primary-black)" : "transparent"} stroke="var(--primary-black)" />
                 ))}
               </div>
-              <span className="rating-text">4.9/5 from 200+ customers</span>
+              <span className="rating-text">4.2/5 from 50+ customers</span>
             </div>
           </div>
           
