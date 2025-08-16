@@ -38,8 +38,11 @@ const Hero = () => {
             </div>
             
             <div className="hero-cta">
-              <button className="btn-primary hero-btn">Call Mo: 0424 910 154</button>
-              <button className="btn-secondary hero-btn">Call Tom: 0450 515 119</button>
+              <button className="btn-primary hero-btn" onClick={scrollToContact}>Get Free Quote</button>
+              <div className="contact-buttons">
+                <a href="tel:0424910154" className="btn-secondary hero-btn">Call Mo: 0424 910 154</a>
+                <a href="tel:0450515119" className="btn-secondary hero-btn">Call Tom: 0450 515 119</a>
+              </div>
             </div>
             
             <div className="hero-rating">
