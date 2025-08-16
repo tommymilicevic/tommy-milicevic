@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Phone, Mail, MapPin, Clock, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
+import { apiService } from '../services/api';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +10,29 @@ const Contact = () => {
     service: '',
     message: ''
   });
+  
+  const [submissionState, setSubmissionState] = useState({
+    loading: false,
+    success: false,
+    error: null
+  });
+
+  const [companyInfo, setCompanyInfo] = useState(null);
+
+  useEffect(() => {
+    fetchCompanyInfo();
+  }, []);
+
+  const fetchCompanyInfo = async () => {
+    try {
+      const response = await apiService.getCompanyInfo();
+      if (response.success) {
+        setCompanyInfo(response.data);
+      }
+    } catch (error) {
+      console.error('Error fetching company info:', error);
+    }
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -16,45 +40,92 @@ const Contact = () => {
       ...prev,
       [name]: value
     }));
+    
+    // Clear errors when user starts typing
+    if (submissionState.error) {
+      setSubmissionState(prev => ({ ...prev, error: null }));
+    }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Mock form submission
-    alert('Thank you for your inquiry! We will contact you within 24 hours.');
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      service: '',
-      message: ''
-    });
+    
+    // Basic validation
+    if (!formData.name.trim() || !formData.email.trim() || !formData.service) {
+      setSubmissionState({
+        loading: false,
+        success: false,
+        error: 'Please fill in all required fields.'
+      });
+      return;
+    }
+
+    setSubmissionState({ loading: true, success: false, error: null });
+
+    try {
+      const response = await apiService.submitContactForm(formData);
+      
+      if (response.success) {
+        setSubmissionState({
+          loading: false,
+          success: true,
+          error: null
+        });
+        
+        // Clear form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          service: '',
+          message: ''
+        });
+        
+        // Clear success message after 5 seconds
+        setTimeout(() => {
+          setSubmissionState(prev => ({ ...prev, success: false }));
+        }, 5000);
+        
+      } else {
+        setSubmissionState({
+          loading: false,
+          success: false,
+          error: response.error || 'Failed to submit form. Please try again.'
+        });
+      }
+    } catch (error) {
+      setSubmissionState({
+        loading: false,
+        success: false,
+        error: 'Network error. Please check your connection and try again.'
+      });
+    }
   };
 
   const contactInfo = [
     {
       icon: <Phone size={24} />,
       title: "Call Us",
-      info: "(555) 123-4567",
+      info: companyInfo?.phone || "(555) 123-4567",
       subtitle: "Available 24/7"
     },
     {
       icon: <Mail size={24} />,
       title: "Email Us",
-      info: "info@cleanproservices.com",
+      info: companyInfo?.email || "info@cleanproservices.com",
       subtitle: "Response within 2 hours"
     },
     {
       icon: <MapPin size={24} />,
       title: "Service Area",
-      info: "Greater Metro Area",
-      subtitle: "Within 25 mile radius"
+      info: companyInfo?.address || "Greater Metro Area",
+      subtitle: companyInfo?.service_radius || "Within 25 mile radius"
     },
     {
       icon: <Clock size={24} />,
       title: "Business Hours",
-      info: "Mon-Sat: 7AM-7PM",
-      subtitle: "Sunday: 9AM-5PM"
+      info: companyInfo?.business_hours?.weekdays || "Mon-Sat: 7AM-7PM",
+      subtitle: companyInfo?.business_hours?.sunday || "Sunday: 9AM-5PM"
     }
   ];
 
@@ -93,6 +164,20 @@ const Contact = () => {
           </div>
           
           <div className="contact-form-container">
+            {submissionState.success && (
+              <div className="alert alert-success">
+                <CheckCircle size={20} />
+                <span>Thank you! We'll contact you within 2 hours.</span>
+              </div>
+            )}
+            
+            {submissionState.error && (
+              <div className="alert alert-error">
+                <AlertCircle size={20} />
+                <span>{submissionState.error}</span>
+              </div>
+            )}
+            
             <form className="contact-form" onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="name">Full Name *</label>
@@ -103,6 +188,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
+                  disabled={submissionState.loading}
                 />
               </div>
               
@@ -116,6 +202,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
+                    disabled={submissionState.loading}
                   />
                 </div>
                 
@@ -127,6 +214,7 @@ const Contact = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
+                    disabled={submissionState.loading}
                   />
                 </div>
               </div>
@@ -139,6 +227,7 @@ const Contact = () => {
                   value={formData.service}
                   onChange={handleInputChange}
                   required
+                  disabled={submissionState.loading}
                 >
                   <option value="">Select a service</option>
                   <option value="pressure-washing">Pressure Washing</option>
@@ -159,11 +248,23 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleInputChange}
                   placeholder="Tell us about your project..."
+                  disabled={submissionState.loading}
                 ></textarea>
               </div>
               
-              <button type="submit" className="btn-primary form-submit">
-                Get Free Quote
+              <button 
+                type="submit" 
+                className="btn-primary form-submit"
+                disabled={submissionState.loading}
+              >
+                {submissionState.loading ? (
+                  <>
+                    <Loader2 size={20} className="btn-spinner" />
+                    Submitting...
+                  </>
+                ) : (
+                  'Get Free Quote'
+                )}
               </button>
             </form>
           </div>
@@ -244,6 +345,28 @@ const Contact = () => {
           border: 2px solid var(--silver-medium);
         }
         
+        .alert {
+          display: flex;
+          align-items: center;
+          gap: var(--spacing-sm);
+          padding: var(--spacing-md);
+          border-radius: 8px;
+          margin-bottom: var(--spacing-lg);
+          font-weight: 500;
+        }
+        
+        .alert-success {
+          background: #d4edda;
+          color: #155724;
+          border: 1px solid #c3e6cb;
+        }
+        
+        .alert-error {
+          background: #f8d7da;
+          color: #721c24;
+          border: 1px solid #f5c6cb;
+        }
+        
         .contact-form {
           display: flex;
           flex-direction: column;
@@ -285,6 +408,13 @@ const Contact = () => {
           border-color: var(--primary-black);
         }
         
+        .form-group input:disabled,
+        .form-group select:disabled,
+        .form-group textarea:disabled {
+          opacity: 0.7;
+          cursor: not-allowed;
+        }
+        
         .form-group textarea {
           resize: vertical;
           min-height: 100px;
@@ -293,6 +423,24 @@ const Contact = () => {
         .form-submit {
           width: 100%;
           margin-top: var(--spacing-md);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: var(--spacing-sm);
+        }
+        
+        .form-submit:disabled {
+          opacity: 0.7;
+          cursor: not-allowed;
+        }
+        
+        .btn-spinner {
+          animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
         }
         
         @media (max-width: 768px) {

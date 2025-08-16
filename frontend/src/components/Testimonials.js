@@ -1,33 +1,116 @@
-import React from 'react';
-import { Star, Quote } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Star, Quote, Loader2 } from 'lucide-react';
+import { apiService } from '../services/api';
 
 const Testimonials = () => {
-  const testimonials = [
-    {
-      id: 1,
-      name: "Sarah Johnson",
-      service: "Pressure Washing & Lawn Care",
-      rating: 5,
-      text: "CleanPro transformed our driveway and lawn completely! The team was professional, punctual, and the results exceeded our expectations. Highly recommended!",
-      location: "Springfield"
-    },
-    {
-      id: 2,
-      name: "Mike Chen",
-      service: "Gutter Cleaning & Gardening",
-      rating: 5,
-      text: "Outstanding service! They cleaned our gutters thoroughly and helped redesign our garden. The attention to detail is impressive. Will definitely use again.",
-      location: "Riverside"
-    },
-    {
-      id: 3,
-      name: "Emily Rodriguez",
-      service: "Rubbish Removal",
-      rating: 5,
-      text: "Fast, efficient, and affordable rubbish removal. They handled our renovation debris professionally and left the area spotless. Great communication throughout.",
-      location: "Downtown"
+  const [testimonials, setTestimonials] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetchTestimonials();
+  }, []);
+
+  const fetchTestimonials = async () => {
+    try {
+      setLoading(true);
+      const response = await apiService.getTestimonials();
+      
+      if (response.success) {
+        setTestimonials(response.data);
+        setError(null);
+      } else {
+        setError(response.error);
+        console.error('Failed to fetch testimonials:', response.error);
+      }
+    } catch (err) {
+      setError('Failed to load testimonials. Please try again later.');
+      console.error('Error fetching testimonials:', err);
+    } finally {
+      setLoading(false);
     }
-  ];
+  };
+
+  const formatDate = (dateString) => {
+    try {
+      const date = new Date(dateString);
+      return date.toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'short', 
+        day: 'numeric' 
+      });
+    } catch {
+      return 'Recently';
+    }
+  };
+
+  if (loading) {
+    return (
+      <section id="testimonials" className="testimonials section">
+        <div className="container">
+          <div className="loading-container">
+            <Loader2 className="loading-spinner" size={48} />
+            <p>Loading customer reviews...</p>
+          </div>
+        </div>
+        
+        <style jsx>{`
+          .loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-giant);
+            color: var(--text-secondary);
+          }
+          
+          .loading-spinner {
+            animation: spin 1s linear infinite;
+            margin-bottom: var(--spacing-md);
+            color: var(--primary-black);
+          }
+          
+          @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+          }
+        `}</style>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section id="testimonials" className="testimonials section">
+        <div className="container">
+          <div className="error-container">
+            <h3>Unable to load testimonials</h3>
+            <p>{error}</p>
+            <button className="btn-primary" onClick={fetchTestimonials}>
+              Try Again
+            </button>
+          </div>
+        </div>
+        
+        <style jsx>{`
+          .error-container {
+            text-align: center;
+            padding: var(--spacing-giant);
+            color: var(--text-secondary);
+          }
+          
+          .error-container h3 {
+            color: var(--primary-black);
+            margin-bottom: var(--spacing-md);
+          }
+          
+          .error-container p {
+            margin-bottom: var(--spacing-lg);
+          }
+        `}</style>
+      </section>
+    );
+  }
 
   return (
     <section id="testimonials" className="testimonials section">
@@ -59,6 +142,10 @@ const Testimonials = () => {
                   <h4 className="author-name">{testimonial.name}</h4>
                   <p className="author-service">{testimonial.service}</p>
                   <p className="author-location">{testimonial.location}</p>
+                  <p className="author-date">{formatDate(testimonial.date)}</p>
+                  {testimonial.verified && (
+                    <span className="verified-badge">✓ Verified Customer</span>
+                  )}
                 </div>
               </div>
             </div>
@@ -153,6 +240,22 @@ const Testimonials = () => {
         .author-location {
           color: var(--text-light);
           font-size: 0.85rem;
+          margin-bottom: 2px;
+        }
+        
+        .author-date {
+          color: var(--text-light);
+          font-size: 0.8rem;
+          margin-bottom: var(--spacing-xs);
+        }
+        
+        .verified-badge {
+          background: var(--primary-black);
+          color: var(--primary-white);
+          font-size: 0.75rem;
+          padding: 2px 8px;
+          border-radius: 12px;
+          font-weight: 500;
         }
         
         .testimonials-cta {
