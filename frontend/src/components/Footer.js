@@ -33,9 +33,9 @@ const Footer = () => {
       <div className="container">
         <div className="footer-content">
           <div className="footer-section">
-            <h3 className="footer-title">{companyInfo?.name || "CleanPro Services"}</h3>
+            <h3 className="footer-title">{companyInfo?.name || "Aurex Exteriors"}</h3>
             <p className="footer-description">
-              {companyInfo?.tagline || "Your trusted partner for comprehensive home maintenance services. Professional, reliable, and guaranteed satisfaction."}
+              {companyInfo?.tagline || "Your trusted partner for comprehensive exterior maintenance services. Professional, reliable, and guaranteed satisfaction."}
             </p>
             <div className="social-links">
               <a href={companyInfo?.social_media?.facebook || "#"} className="social-link" aria-label="Facebook">
