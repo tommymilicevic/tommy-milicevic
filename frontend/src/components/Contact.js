@@ -138,15 +138,9 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: <Phone size={24} />,
-      title: "Call Mo",
-      info: "0424 910 154",
-      subtitle: "Owner"
-    },
-    {
-      icon: <Phone size={24} />,
-      title: "Call Tom", 
-      info: "0450 515 119",
-      subtitle: "Owner"
+      title: "Call Us",
+      info: "Mo: 0424 910 154, Tom: 0450 515 119",
+      subtitle: "Available 24/7"
     },
     {
       icon: <Mail size={24} />,
