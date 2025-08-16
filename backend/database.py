@@ -51,6 +51,8 @@ class Database:
             company_count = await self.db.company_info.count_documents({})
             if company_count == 0:
                 await self._init_company_info()
+            else:
+                logger.info(f"Company info already exists ({company_count} documents), skipping initialization")
                 
         except Exception as e:
             logger.error(f"Error initializing data: {e}")
