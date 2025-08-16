@@ -94,7 +94,7 @@ body {
 
 /* Button Styles */
 .btn-primary {
-  background: var(--primary-black);
+  background: linear-gradient(135deg, var(--primary-black) 0%, var(--silver-dark) 100%);
   color: var(--primary-white);
   border: none;
   border-radius: 25px;
@@ -102,38 +102,41 @@ body {
   font-size: clamp(1rem, 2vw, 1.125rem);
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   text-decoration: none;
   display: inline-block;
   min-height: 48px;
   line-height: 1.2;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .btn-primary:hover {
-  background: var(--silver-dark);
+  background: linear-gradient(135deg, var(--silver-dark) 0%, var(--primary-black) 100%);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .btn-secondary {
-  background: transparent;
+  background: linear-gradient(135deg, var(--primary-white) 0%, var(--silver-shine) 100%);
   color: var(--primary-black);
-  border: 2px solid var(--primary-black);
+  border: 2px solid var(--silver-medium);
   border-radius: 25px;
   padding: 12px 30px;
   font-size: clamp(1rem, 2vw, 1.125rem);
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   text-decoration: none;
   display: inline-block;
   min-height: 48px;
+  box-shadow: 0 4px 15px rgba(192, 192, 192, 0.2);
 }
 
 .btn-secondary:hover {
-  background: var(--primary-black);
-  color: var(--primary-white);
+  background: linear-gradient(135deg, var(--silver-medium) 0%, var(--silver-light) 100%);
+  color: var(--primary-black);
   transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(192, 192, 192, 0.3);
 }
 
 /* Card Styles */
