@@ -188,7 +188,7 @@ class Database:
         company_data = {
             "name": "Aurex Exteriors",
             "tagline": "Professional Exterior Services You Can Trust",
-            "phone": "0450515119",
+            "phone": "Mo: 0424 910 154, Tom: 0450515119",
             "email": "AurexExteriors@gmail.com",
             "address": "Canberra, Australian Capital Territory (ACT)",
             "service_radius": "2600-2617 postcode areas",
@@ -197,6 +197,18 @@ class Database:
                 "saturday": "7AM - 7PM",
                 "sunday": "9AM - 5PM"
             },
+            "contacts": [
+                {
+                    "name": "Mo",
+                    "phone": "0424 910 154",
+                    "role": "Operations Manager"
+                },
+                {
+                    "name": "Tom", 
+                    "phone": "0450515119",
+                    "role": "Service Manager"
+                }
+            ],
             "features": [
                 "Licensed & Insured",
                 "Same Day Service",
