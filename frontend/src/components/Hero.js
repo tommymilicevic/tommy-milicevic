@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle, Star, Droplets, Scissors, Trash2, Leaf } from 'lucide-react';
+import { CheckCircle, Star, Droplets, Zap, Trash2, Leaf } from 'lucide-react';
 
 const Hero = () => {
   return (
