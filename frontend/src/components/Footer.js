@@ -27,7 +27,13 @@ const Footer = () => {
               <a href="#" className="social-link" aria-label="Twitter">
                 <Twitter size={20} />
               </a>
-              <a href="#" className="social-link" aria-label="Instagram">
+              <a 
+                href="https://www.instagram.com/aurexexteriors" 
+                className="social-link" 
+                aria-label="Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Instagram size={20} />
               </a>
             </div>
