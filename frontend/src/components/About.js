@@ -3,8 +3,8 @@ import { Shield, Clock, Users, Award } from 'lucide-react';
 
 const About = () => {
   const stats = [
-    { icon: <Users size={24} />, number: "500+", label: "Happy Customers" },
-    { icon: <Clock size={24} />, number: "5+", label: "Years Experience" },
+    { icon: <Users size={24} />, number: "50+", label: "Happy Customers" },
+    { icon: <Clock size={24} />, number: "2+", label: "Years Experience" },
     { icon: <Award size={24} />, number: "100%", label: "Satisfaction Rate" },
     { icon: <Shield size={24} />, number: "24/7", label: "Support Available" }
   ];
