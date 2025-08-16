@@ -234,6 +234,9 @@ async def get_company_info():
     try:
         company_data = await database.get_company_info()
         
+        # Debug logging
+        logger.info(f"Retrieved company data from DB: address={company_data.get('address') if company_data else 'None'}")
+        
         if not company_data:
             raise HTTPException(
                 status_code=status.HTTP_404_NOT_FOUND,
@@ -252,6 +255,8 @@ async def get_company_info():
             "stats": company_data["stats"],
             "social_media": company_data["social_media"]
         })
+        
+        logger.info(f"Returning company info: address={company_info.address}")
         
         return CompanyInfoResponse(
             success=True,
