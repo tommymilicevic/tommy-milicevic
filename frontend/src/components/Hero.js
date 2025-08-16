@@ -2,6 +2,13 @@ import React from 'react';
 import { CheckCircle, Star, Droplets, Zap, Trash2, Leaf } from 'lucide-react';
 
 const Hero = () => {
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="home" className="hero">
       <div className="container">
