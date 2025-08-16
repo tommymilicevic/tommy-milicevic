@@ -31,8 +31,8 @@ const Hero = () => {
             </div>
             
             <div className="hero-cta">
-              <button className="btn-primary hero-btn">Get Free Quote</button>
-              <button className="btn-secondary hero-btn">Call Mo: 0424 910 154</button>
+              <button className="btn-primary hero-btn">Call Mo: 0424 910 154</button>
+              <button className="btn-secondary hero-btn">Call Tom: 0450 515 119</button>
             </div>
             
             <div className="hero-rating">
