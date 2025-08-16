@@ -1,7 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Phone, Mail, MapPin, Facebook, Twitter, Instagram } from 'lucide-react';
+import { apiService } from '../services/api';
 
 const Footer = () => {
+  const [companyInfo, setCompanyInfo] = useState(null);
+
+  useEffect(() => {
+    fetchCompanyInfo();
+  }, []);
+
+  const fetchCompanyInfo = async () => {
+    try {
+      const response = await apiService.getCompanyInfo();
+      if (response.success) {
+        setCompanyInfo(response.data);
+      }
+    } catch (error) {
+      console.error('Error fetching company info in footer:', error);
+    }
+  };
+
   const services = [
     "Pressure Washing",
     "Gardening Services", 
