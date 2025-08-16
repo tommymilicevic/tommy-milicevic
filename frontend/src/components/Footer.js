@@ -38,16 +38,16 @@ const Footer = () => {
               {companyInfo?.tagline || "Your trusted partner for comprehensive exterior maintenance services. Professional, reliable, and guaranteed satisfaction."}
             </p>
             <div className="social-links">
-              <a href={companyInfo?.social_media?.facebook || "#"} className="social-link" aria-label="Facebook">
+              <a href={companyInfo?.social_media?.facebook || "#"} className="social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
                 <Facebook size={20} />
               </a>
-              <a href={companyInfo?.social_media?.twitter || "#"} className="social-link" aria-label="Twitter">
+              <a href={companyInfo?.social_media?.twitter || "#"} className="social-link" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
                 <Twitter size={20} />
               </a>
               <a 
-                href={companyInfo?.social_media?.instagram || "https://www.instagram.com/aurexexteriors"} 
+                href="https://www.instagram.com/aurexexteriors" 
                 className="social-link" 
-                aria-label="Instagram"
+                aria-label="Instagram - AurexExteriors"
                 target="_blank"
                 rel="noopener noreferrer"
               >
