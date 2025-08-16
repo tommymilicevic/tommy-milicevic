@@ -1,44 +1,117 @@
-import React from 'react';
-import { Droplets, Scissors, Trash2, Home, TreePine } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Droplets, Scissors, Trash2, Home, TreePine, Loader2 } from 'lucide-react';
+import { apiService } from '../services/api';
 
 const Services = () => {
-  const services = [
-    {
-      id: 1,
-      icon: <Droplets size={32} />,
-      title: "Pressure Washing",
-      description: "Professional pressure washing for driveways, sidewalks, decks, and building exteriors. Remove years of dirt and grime.",
-      features: ["Driveways & Sidewalks", "Building Exteriors", "Decks & Patios", "Eco-friendly Solutions"]
-    },
-    {
-      id: 2,
-      icon: <TreePine size={32} />,
-      title: "Gardening Services",
-      description: "Complete garden maintenance including planting, pruning, weeding, and seasonal garden care.",
-      features: ["Garden Design", "Plant Installation", "Pruning & Trimming", "Seasonal Maintenance"]
-    },
-    {
-      id: 3,
-      icon: <Trash2 size={32} />,
-      title: "Rubbish Removal",
-      description: "Fast and reliable waste removal service for household, garden, and construction debris.",
-      features: ["Household Waste", "Garden Debris", "Construction Waste", "Same Day Pickup"]
-    },
-    {
-      id: 4,
-      icon: <Home size={32} />,
-      title: "Gutter Cleaning",
-      description: "Thorough gutter cleaning and maintenance to protect your home from water damage.",
-      features: ["Gutter Cleaning", "Downspout Clearing", "Gutter Repairs", "Maintenance Programs"]
-    },
-    {
-      id: 5,
-      icon: <Scissors size={32} />,
-      title: "Lawn Mowing",
-      description: "Regular lawn mowing and grass care to keep your property looking pristine year-round.",
-      features: ["Weekly Mowing", "Edge Trimming", "Grass Care Tips", "Seasonal Packages"]
+  const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Icon mapping
+  const iconMap = {
+    'droplets': Droplets,
+    'tree-pine': TreePine,
+    'trash-2': Trash2,
+    'home': Home,
+    'scissors': Scissors
+  };
+
+  useEffect(() => {
+    fetchServices();
+  }, []);
+
+  const fetchServices = async () => {
+    try {
+      setLoading(true);
+      const response = await apiService.getServices();
+      
+      if (response.success) {
+        setServices(response.data);
+        setError(null);
+      } else {
+        setError(response.error);
+        console.error('Failed to fetch services:', response.error);
+      }
+    } catch (err) {
+      setError('Failed to load services. Please try again later.');
+      console.error('Error fetching services:', err);
+    } finally {
+      setLoading(false);
     }
-  ];
+  };
+
+  const getIcon = (iconName) => {
+    const IconComponent = iconMap[iconName] || Home;
+    return <IconComponent size={32} />;
+  };
+
+  if (loading) {
+    return (
+      <section id="services" className="services section">
+        <div className="container">
+          <div className="loading-container">
+            <Loader2 className="loading-spinner" size={48} />
+            <p>Loading our services...</p>
+          </div>
+        </div>
+        
+        <style jsx>{`
+          .loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-giant);
+            color: var(--text-secondary);
+          }
+          
+          .loading-spinner {
+            animation: spin 1s linear infinite;
+            margin-bottom: var(--spacing-md);
+            color: var(--primary-black);
+          }
+          
+          @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+          }
+        `}</style>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section id="services" className="services section">
+        <div className="container">
+          <div className="error-container">
+            <h3>Unable to load services</h3>
+            <p>{error}</p>
+            <button className="btn-primary" onClick={fetchServices}>
+              Try Again
+            </button>
+          </div>
+        </div>
+        
+        <style jsx>{`
+          .error-container {
+            text-align: center;
+            padding: var(--spacing-giant);
+            color: var(--text-secondary);
+          }
+          
+          .error-container h3 {
+            color: var(--primary-black);
+            margin-bottom: var(--spacing-md);
+          }
+          
+          .error-container p {
+            margin-bottom: var(--spacing-lg);
+          }
+        `}</style>
+      </section>
+    );
+  }
 
   return (
     <section id="services" className="services section">
@@ -54,9 +127,9 @@ const Services = () => {
           {services.map((service) => (
             <div key={service.id} className="service-card">
               <div className="service-icon">
-                {service.icon}
+                {getIcon(service.icon)}
               </div>
-              <h3 className="heading-3">{service.title}</h3>
+              <h3 className="heading-3">{service.name}</h3>
               <p className="body-medium service-description">
                 {service.description}
               </p>
@@ -68,6 +141,10 @@ const Services = () => {
                   </li>
                 ))}
               </ul>
+              <div className="service-pricing">
+                <span className="price">Starting at ${service.pricing.starting}</span>
+                <span className="price-unit">{service.pricing.unit}</span>
+              </div>
               <button className="btn-secondary service-btn">Learn More</button>
             </div>
           ))}
@@ -148,6 +225,27 @@ const Services = () => {
         .feature-bullet {
           color: var(--primary-black);
           font-weight: bold;
+        }
+        
+        .service-pricing {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: var(--spacing-lg);
+          padding: var(--spacing-md);
+          background: var(--silver-light);
+          border-radius: 8px;
+        }
+        
+        .price {
+          font-size: 1.25rem;
+          font-weight: 600;
+          color: var(--primary-black);
+        }
+        
+        .price-unit {
+          font-size: 0.9rem;
+          color: var(--text-secondary);
         }
         
         .service-btn {
