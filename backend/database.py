@@ -201,12 +201,12 @@ class Database:
                 {
                     "name": "Mo",
                     "phone": "0424 910 154",
-                    "role": "Operations Manager"
+                    "role": "Owner"
                 },
                 {
                     "name": "Tom", 
                     "phone": "0450515119",
-                    "role": "Service Manager"
+                    "role": "Owner"
                 }
             ],
             "features": [
