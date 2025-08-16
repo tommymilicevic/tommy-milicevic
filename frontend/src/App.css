@@ -1,34 +1,191 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+/* Custom Color Variables */
+:root {
+  /* Black, White, Silver Theme */
+  --primary-black: #000000;
+  --primary-white: #FFFFFF;
+  --silver-light: #F5F5F5;
+  --silver-medium: #C0C0C0;
+  --silver-dark: #808080;
+  --text-primary: #000000;
+  --text-secondary: #404040;
+  --text-light: #666666;
+  
+  /* Spacing System */
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+  --spacing-xl: 48px;
+  --spacing-giant: 64px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-primary);
+  background-color: var(--primary-white);
 }
 
-.App-link {
-    color: #61dafb;
+.App {
+  min-height: 100vh;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+/* Typography Scale */
+.display-large { 
+  font-size: clamp(3rem, 6.5vw, 5rem); 
+  font-weight: 700; 
+  line-height: 0.95; 
+  color: var(--text-primary);
+}
+
+.display-medium { 
+  font-size: clamp(2rem, 4vw, 3rem); 
+  font-weight: 600; 
+  line-height: 1.2; 
+  color: var(--text-primary);
+}
+
+.heading-1 { 
+  font-size: clamp(2rem, 4vw, 3rem); 
+  font-weight: 600; 
+  line-height: 1.2; 
+  color: var(--text-primary);
+}
+
+.heading-2 { 
+  font-size: clamp(1.5rem, 3vw, 2rem); 
+  font-weight: 600; 
+  line-height: 1.3; 
+  color: var(--text-primary);
+}
+
+.heading-3 { 
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem); 
+  font-weight: 600; 
+  line-height: 1.4; 
+  color: var(--text-primary);
+}
+
+.body-large { 
+  font-size: clamp(1.125rem, 2.5vw, 1.25rem); 
+  font-weight: 400; 
+  line-height: 1.6; 
+  color: var(--text-secondary);
+}
+
+.body-medium { 
+  font-size: clamp(1rem, 2vw, 1.125rem); 
+  font-weight: 400; 
+  line-height: 1.6; 
+  color: var(--text-secondary);
+}
+
+/* Button Styles */
+.btn-primary {
+  background: var(--primary-black);
+  color: var(--primary-white);
+  border: none;
+  border-radius: 25px;
+  padding: 14px 32px;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+  min-height: 48px;
+  line-height: 1.2;
+}
+
+.btn-primary:hover {
+  background: var(--silver-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--primary-black);
+  border: 2px solid var(--primary-black);
+  border-radius: 25px;
+  padding: 12px 30px;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+  min-height: 48px;
+}
+
+.btn-secondary:hover {
+  background: var(--primary-black);
+  color: var(--primary-white);
+  transform: translateY(-2px);
+}
+
+/* Card Styles */
+.service-card {
+  background: var(--primary-white);
+  border: 2px solid var(--silver-light);
+  border-radius: 16px;
+  padding: var(--spacing-lg);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  height: 100%;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-color: var(--silver-medium);
+}
+
+/* Container System */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* Section Spacing */
+.section {
+  padding: var(--spacing-giant) 0;
+}
+
+.section-alt {
+  background-color: var(--silver-light);
+}
+
+/* Animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  .section {
+    padding: var(--spacing-xl) 0;
+  }
 }
