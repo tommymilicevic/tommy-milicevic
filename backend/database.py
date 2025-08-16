@@ -186,10 +186,10 @@ class Database:
     async def _init_company_info(self):
         """Initialize company info collection"""
         company_data = {
-            "name": "CleanPro Services",
-            "tagline": "Professional Home Services You Can Trust",
-            "phone": "(555) 123-4567",
-            "email": "info@cleanproservices.com",
+            "name": "Aurex Exteriors",
+            "tagline": "Professional Exterior Services You Can Trust",
+            "phone": "0450515119",
+            "email": "AurexExteriors@gmail.com",
             "address": "Canberra, Australian Capital Territory (ACT)",
             "service_radius": "2600-2617 postcode areas",
             "business_hours": {
@@ -203,8 +203,8 @@ class Database:
                 "100% Satisfaction Guarantee"
             ],
             "stats": {
-                "customers": "500+",
-                "experience": "5+",
+                "customers": "50+",
+                "experience": "2+",
                 "satisfaction": "100%",
                 "support": "24/7"
             },
