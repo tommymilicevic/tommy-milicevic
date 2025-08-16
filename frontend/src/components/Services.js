@@ -152,7 +152,7 @@ const Services = () => {
                 <span className="price">Starting at ${service.pricing.starting}</span>
                 <span className="price-unit">{service.pricing.unit}</span>
               </div>
-              <button className="btn-secondary service-btn">Learn More</button>
+              <button className="btn-secondary service-btn" onClick={scrollToContact}>Get Quote</button>
             </div>
           ))}
         </div>
