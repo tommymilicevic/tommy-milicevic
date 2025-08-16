@@ -50,12 +50,44 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
+    // Clear previous states
+    setSubmissionState({ loading: false, success: false, error: null });
+    
     // Basic validation
-    if (!formData.name.trim() || !formData.email.trim() || !formData.service) {
+    if (!formData.name.trim()) {
       setSubmissionState({
         loading: false,
         success: false,
-        error: 'Please fill in all required fields.'
+        error: 'Please enter your full name.'
+      });
+      return;
+    }
+    
+    if (!formData.email.trim()) {
+      setSubmissionState({
+        loading: false,
+        success: false,
+        error: 'Please enter your email address.'
+      });
+      return;
+    }
+    
+    if (!formData.service) {
+      setSubmissionState({
+        loading: false,
+        success: false,
+        error: 'Please select a service.'
+      });
+      return;
+    }
+
+    // Email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setSubmissionState({
+        loading: false,
+        success: false,
+        error: 'Please enter a valid email address.'
       });
       return;
     }
@@ -94,6 +126,7 @@ const Contact = () => {
         });
       }
     } catch (error) {
+      console.error('Contact form submission error:', error);
       setSubmissionState({
         loading: false,
         success: false,
