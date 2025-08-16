@@ -134,27 +134,56 @@ const Hero = () => {
         .image-placeholder {
           width: 400px;
           height: 400px;
-          background: var(--silver-light);
-          border-radius: 20px;
+          background: linear-gradient(145deg, var(--silver-light) 0%, var(--silver-shine) 50%, var(--primary-white) 100%);
+          border-radius: 24px;
           display: flex;
           align-items: center;
           justify-content: center;
           border: 2px solid var(--silver-medium);
+          box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .image-placeholder::before {
+          content: '';
+          position: absolute;
+          top: -50%;
+          left: -50%;
+          width: 200%;
+          height: 200%;
+          background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%);
+          animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+          0% { transform: rotate(0deg) translateX(-100%); }
+          100% { transform: rotate(0deg) translateX(100%); }
         }
         
         .service-icons {
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: var(--spacing-lg);
+          z-index: 2;
+          position: relative;
         }
         
         .icon-item {
           font-size: 3rem;
           text-align: center;
           padding: var(--spacing-md);
-          background: var(--primary-white);
-          border-radius: 12px;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+          background: linear-gradient(145deg, var(--primary-white) 0%, var(--silver-shine) 100%);
+          border-radius: 16px;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+          border: 1px solid var(--silver-medium);
+          transition: all 0.3s ease;
+        }
+        
+        .icon-item:hover {
+          transform: translateY(-4px) scale(1.05);
+          box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+          background: linear-gradient(145deg, var(--silver-shine) 0%, var(--primary-white) 100%);
         }
         
         @media (max-width: 768px) {
