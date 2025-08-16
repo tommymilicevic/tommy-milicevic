@@ -33,20 +33,19 @@ const Footer = () => {
       <div className="container">
         <div className="footer-content">
           <div className="footer-section">
-            <h3 className="footer-title">CleanPro Services</h3>
+            <h3 className="footer-title">{companyInfo?.name || "CleanPro Services"}</h3>
             <p className="footer-description">
-              Your trusted partner for comprehensive home maintenance services. 
-              Professional, reliable, and guaranteed satisfaction.
+              {companyInfo?.tagline || "Your trusted partner for comprehensive home maintenance services. Professional, reliable, and guaranteed satisfaction."}
             </p>
             <div className="social-links">
-              <a href="#" className="social-link" aria-label="Facebook">
+              <a href={companyInfo?.social_media?.facebook || "#"} className="social-link" aria-label="Facebook">
                 <Facebook size={20} />
               </a>
-              <a href="#" className="social-link" aria-label="Twitter">
+              <a href={companyInfo?.social_media?.twitter || "#"} className="social-link" aria-label="Twitter">
                 <Twitter size={20} />
               </a>
               <a 
-                href="https://www.instagram.com/aurexexteriors" 
+                href={companyInfo?.social_media?.instagram || "https://www.instagram.com/aurexexteriors"} 
                 className="social-link" 
                 aria-label="Instagram"
                 target="_blank"
