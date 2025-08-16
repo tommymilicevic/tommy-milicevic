@@ -187,8 +187,8 @@ class Database:
             "tagline": "Professional Home Services You Can Trust",
             "phone": "(555) 123-4567",
             "email": "info@cleanproservices.com",
-            "address": "Greater Metro Area",
-            "service_radius": "25 mile radius",
+            "address": "Canberra, Australian Capital Territory (ACT)",
+            "service_radius": "2600-2617 postcode areas",
             "business_hours": {
                 "weekdays": "7AM - 7PM",
                 "saturday": "7AM - 7PM",
@@ -208,7 +208,7 @@ class Database:
             "social_media": {
                 "facebook": "#",
                 "twitter": "#",
-                "instagram": "#"
+                "instagram": "https://www.instagram.com/aurexexteriors"
             }
         }
         
