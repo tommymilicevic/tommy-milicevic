@@ -14,9 +14,9 @@ const About = () => {
       <div className="container">
         <div className="about-content">
           <div className="about-text">
-            <h2 className="heading-1">Why Choose CleanPro Services?</h2>
+            <h2 className="heading-1">Why Choose Aurex Exteriors?</h2>
             <p className="body-large about-description">
-              With over 5 years of experience in home maintenance, we've built our reputation 
+              With over 2 years of experience in home maintenance, we've built our reputation 
               on reliability, quality, and customer satisfaction. Our team of licensed professionals 
               is committed to exceeding your expectations.
             </p>
