@@ -60,13 +60,15 @@ const Header = () => {
       
       <style jsx>{`
         .header {
-          background: var(--primary-white);
-          border-bottom: 1px solid var(--silver-light);
+          background: linear-gradient(135deg, var(--primary-white) 0%, var(--silver-shine) 100%);
+          border-bottom: 1px solid var(--silver-medium);
           position: fixed;
           top: 0;
           width: 100%;
           z-index: 1000;
           padding: var(--spacing-sm) 0;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+          backdrop-filter: blur(10px);
         }
         
         .nav-wrapper {
