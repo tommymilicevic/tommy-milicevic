@@ -47,12 +47,13 @@ class Database:
             if testimonials_count == 0:
                 await self._init_testimonials()
                 
+            # TEMPORARILY DISABLE COMPANY INFO AUTO-INIT
             # Initialize Company Info
-            company_count = await self.db.company_info.count_documents({})
-            if company_count == 0:
-                await self._init_company_info()
-            else:
-                logger.info(f"Company info already exists ({company_count} documents), skipping initialization")
+            # company_count = await self.db.company_info.count_documents({})
+            # if company_count == 0:
+            #     await self._init_company_info()
+            # else:
+            #     logger.info(f"Company info already exists ({company_count} documents), skipping initialization")
                 
         except Exception as e:
             logger.error(f"Error initializing data: {e}")
