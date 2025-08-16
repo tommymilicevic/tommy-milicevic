@@ -139,13 +139,13 @@ const Contact = () => {
     {
       icon: <Phone size={24} />,
       title: "Call Us",
-      info: companyInfo?.phone || "(555) 123-4567",
+      info: companyInfo?.phone || "0450515119",
       subtitle: "Available 24/7"
     },
     {
       icon: <Mail size={24} />,
       title: "Email Us",
-      info: companyInfo?.email || "info@cleanproservices.com",
+      info: companyInfo?.email || "AurexExteriors@gmail.com",
       subtitle: "Response within 2 hours"
     },
     {
