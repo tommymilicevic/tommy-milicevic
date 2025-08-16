@@ -119,22 +119,16 @@ const Hero = () => {
           flex-direction: column;
           gap: var(--spacing-md);
           margin: var(--spacing-xl) 0;
-          align-items: center;
-        }
-        
-        .contact-buttons {
-          display: flex;
-          gap: var(--spacing-md);
-          width: 100%;
+          align-items: stretch;
         }
         
         .hero-btn {
-          flex: 1;
           text-align: center;
           text-decoration: none;
           display: flex;
           align-items: center;
           justify-content: center;
+          width: 100%;
         }
         
         .hero-rating {
