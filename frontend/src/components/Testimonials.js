@@ -162,7 +162,7 @@ const Testimonials = () => {
         <div className="testimonials-cta">
           <h3 className="heading-2">Ready to Join Our Happy Customers?</h3>
           <p className="body-large">Experience the Aurex Exteriors difference for yourself.</p>
-          <button className="btn-primary">Get Your Free Quote</button>
+          <button className="btn-primary" onClick={scrollToContact}>Get Your Free Quote</button>
         </div>
       </div>
       
