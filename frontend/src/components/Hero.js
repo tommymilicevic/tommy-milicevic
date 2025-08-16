@@ -32,7 +32,7 @@ const Hero = () => {
             
             <div className="hero-cta">
               <button className="btn-primary hero-btn">Get Free Quote</button>
-              <button className="btn-secondary hero-btn">Call Now: 0450515119</button>
+              <button className="btn-secondary hero-btn">Call Mo: 0424 910 154</button>
             </div>
             
             <div className="hero-rating">
