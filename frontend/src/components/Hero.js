@@ -48,10 +48,18 @@ const Hero = () => {
           <div className="hero-image">
             <div className="image-placeholder">
               <div className="service-icons">
-                <div className="icon-item">🚿</div>
-                <div className="icon-item">🌱</div>
-                <div className="icon-item">🗑️</div>
-                <div className="icon-item">🏡</div>
+                <div className="icon-item">
+                  <Droplets size={48} />
+                </div>
+                <div className="icon-item">
+                  <Scissors size={48} />
+                </div>
+                <div className="icon-item">
+                  <Trash2 size={48} />
+                </div>
+                <div className="icon-item">
+                  <Leaf size={48} />
+                </div>
               </div>
             </div>
           </div>
