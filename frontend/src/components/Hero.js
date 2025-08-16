@@ -49,16 +49,16 @@ const Hero = () => {
             <div className="image-placeholder">
               <div className="service-icons">
                 <div className="icon-item">
-                  <Droplets size={48} />
+                  <Droplets size={28} />
                 </div>
                 <div className="icon-item">
-                  <Scissors size={48} />
+                  <Zap size={28} />
                 </div>
                 <div className="icon-item">
-                  <Trash2 size={48} />
+                  <Trash2 size={28} />
                 </div>
                 <div className="icon-item">
-                  <Leaf size={48} />
+                  <Leaf size={28} />
                 </div>
               </div>
             </div>
