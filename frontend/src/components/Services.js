@@ -152,7 +152,7 @@ const Services = () => {
         
         <div className="services-cta">
           <h3 className="heading-2">Need Multiple Services?</h3>
-          <p className="body-large">Get a bundled quote and save up to 15% on combined services.</p>
+          <p className="body-large">Get a bundled quote and save up to 10% on combined services.</p>
           <button className="btn-primary">Get Bundle Quote</button>
         </div>
       </div>
