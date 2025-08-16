@@ -151,8 +151,8 @@ const Contact = () => {
     {
       icon: <MapPin size={24} />,
       title: "Service Area",
-      info: companyInfo?.address || "Greater Metro Area",
-      subtitle: companyInfo?.service_radius || "Within 25 mile radius"
+      info: companyInfo?.address || "Canberra, Australian Capital Territory (ACT)",
+      subtitle: companyInfo?.service_radius || "2600-2617 postcode areas"
     },
     {
       icon: <Clock size={24} />,
