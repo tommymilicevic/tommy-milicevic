@@ -118,13 +118,25 @@ const Hero = () => {
         
         .hero-cta {
           display: flex;
+          flex-direction: column;
           gap: var(--spacing-md);
           margin: var(--spacing-xl) 0;
+          align-items: center;
+        }
+        
+        .contact-buttons {
+          display: flex;
+          gap: var(--spacing-md);
+          width: 100%;
         }
         
         .hero-btn {
           flex: 1;
           text-align: center;
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
         
         .hero-rating {
