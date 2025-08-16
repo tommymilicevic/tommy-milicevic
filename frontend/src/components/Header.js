@@ -17,7 +17,7 @@ const Header = () => {
       <div className="container">
         <nav className="nav-wrapper">
           <div className="logo">
-            <h2 className="heading-3">CleanPro Services</h2>
+            <h2 className="heading-3">Aurex Exteriors</h2>
           </div>
           
           {/* Desktop Navigation */}
