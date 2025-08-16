@@ -222,8 +222,17 @@ class Database:
         return services
 
     async def get_service_by_id(self, service_id: str) -> Optional[dict]:
-        service = await self.db.services.find_one({"_id": service_id, "active": True})
-        return service
+        from bson import ObjectId
+        try:
+            # Try to convert to ObjectId if it's a valid ObjectId string
+            if ObjectId.is_valid(service_id):
+                service = await self.db.services.find_one({"_id": ObjectId(service_id), "active": True})
+            else:
+                # Fallback to string search for UUID-based IDs
+                service = await self.db.services.find_one({"_id": service_id, "active": True})
+            return service
+        except Exception:
+            return None
 
     # Testimonials CRUD
     async def get_testimonials(self) -> List[dict]:
