@@ -83,11 +83,7 @@ const Footer = () => {
             <div className="contact-info">
               <div className="contact-item">
                 <Phone size={16} />
-                <span>Mo: 0424 910 154</span>
-              </div>
-              <div className="contact-item">
-                <Phone size={16} />
-                <span>Tom: 0450 515 119</span>
+                <span>Mo: 0424 910 154, Tom: 0450 515 119</span>
               </div>
               <div className="contact-item">
                 <Mail size={16} />
