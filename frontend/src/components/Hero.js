@@ -48,10 +48,10 @@ const Hero = () => {
           <div className="hero-image">
             <div className="image-placeholder">
               <div className="service-icons">
-                <div className="icon-item">🏠</div>
-                <div className="icon-item">🧽</div>
-                <div className="icon-item">🌿</div>
-                <div className="icon-item">✨</div>
+                <div className="icon-item">🚿</div>
+                <div className="icon-item">🌱</div>
+                <div className="icon-item">🗑️</div>
+                <div className="icon-item">🏡</div>
               </div>
             </div>
           </div>
