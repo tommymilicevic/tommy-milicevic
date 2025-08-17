@@ -140,6 +140,28 @@ export const apiService = {
     }
   },
 
+  // Contact Form with File Upload API
+  async submitContactFormWithFiles(formData) {
+    try {
+      const response = await axios.post(`${API_BASE}/contact`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+        timeout: 30000, // 30 seconds for file upload
+      });
+      return { 
+        success: true, 
+        message: response.data.message 
+      };
+    } catch (error) {
+      console.error('Error submitting contact form with files:', error);
+      return { 
+        success: false, 
+        error: error.response?.data?.detail || error.message 
+      };
+    }
+  },
+
   // Company Info API
   async getCompanyInfo() {
     try {
