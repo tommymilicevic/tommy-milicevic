@@ -181,8 +181,7 @@ const Services = () => {
       
       <style jsx>{`
         .services {
-          background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-          color: var(--text-primary);
+          background: var(--primary-white);
         }
         
         .section-header {
