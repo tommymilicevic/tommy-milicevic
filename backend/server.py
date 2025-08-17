@@ -37,7 +37,7 @@ logger = logging.getLogger(__name__)
 @app.on_event("startup")
 async def startup_event():
     await database.connect()
-    logger.info("CleanPro Services API started successfully")
+    logger.info("Aurex Exteriors API started successfully")
 
 @app.on_event("shutdown")
 async def shutdown_event():
