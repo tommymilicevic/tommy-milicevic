@@ -129,9 +129,10 @@ const Header = () => {
         }
         
         .logo-image {
-          height: 45px;
+          height: 50px;
           width: auto;
           object-fit: contain;
+          max-width: 200px;
         }
         
         .logo h2 {
