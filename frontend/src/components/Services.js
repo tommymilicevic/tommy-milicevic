@@ -244,35 +244,18 @@ const Services = () => {
           align-items: center;
           width: 72px;
           height: 72px;
-          background: var(--bg-gradient-1);
+          background: linear-gradient(145deg, var(--silver-light) 0%, var(--silver-shine) 100%);
           border-radius: 16px;
-          color: var(--primary-white);
+          color: var(--primary-black);
           flex-shrink: 0;
-          border: none;
+          border: 2px solid var(--silver-medium);
           transition: all 0.3s ease;
-          box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
         }
         
         .service-card:hover .service-icon {
-          background: var(--bg-gradient-2);
-          transform: scale(1.05) rotate(5deg);
-          box-shadow: 0 8px 20px rgba(5, 150, 105, 0.3);
-        }
-        
-        .service-card:nth-child(2n) .service-icon {
-          background: var(--bg-gradient-2);
-        }
-        
-        .service-card:nth-child(2n):hover .service-icon {
-          background: var(--bg-gradient-3);
-        }
-        
-        .service-card:nth-child(3n) .service-icon {
-          background: var(--bg-gradient-3);
-        }
-        
-        .service-card:nth-child(3n):hover .service-icon {
-          background: var(--bg-gradient-1);
+          background: linear-gradient(135deg, var(--primary-black) 0%, var(--silver-dark) 100%);
+          color: var(--primary-white);
+          transform: scale(1.05);
         }
         
         .service-title h3 {
