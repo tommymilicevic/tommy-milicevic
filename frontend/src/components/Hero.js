@@ -25,15 +25,15 @@ const Hero = () => {
             <div className="hero-features">
               <div className="feature-item">
                 <CheckCircle size={20} className="feature-icon" />
-                <span>Fully Insured</span>
-              </div>
-              <div className="feature-item">
-                <CheckCircle size={20} className="feature-icon" />
                 <span>Same Day Service</span>
               </div>
               <div className="feature-item">
                 <CheckCircle size={20} className="feature-icon" />
                 <span>100% Satisfaction Guarantee</span>
+              </div>
+              <div className="feature-item">
+                <CheckCircle size={20} className="feature-icon" />
+                <span>Professional Quality</span>
               </div>
             </div>
             
