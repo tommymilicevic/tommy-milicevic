@@ -164,6 +164,9 @@ backend:
       - working: true
         agent: "testing"
         comment: "✅ PASSED: POST /api/contact accepts valid submissions and returns success message. Properly validates required fields (name, email, message), email format, and phone number format. Correctly rejects invalid/missing data with appropriate error responses."
+      - working: true
+        agent: "testing"
+        comment: "✅ PASSED: Updated contact form API with multipart/form-data and file upload functionality fully tested. All test scenarios passed: 1) Form submission without photos ✅ 2) Form submission with valid image files (JPEG/PNG) ✅ 3) File size validation (>10MB files properly skipped) ✅ 4) File type validation (non-image files properly skipped) ✅ 5) Multiple file uploads (3 images) ✅ 6) Required field validation (name, email, service, message) ✅ 7) Email format validation ✅. Backend logs confirm proper file handling: valid images added as attachments, oversized files skipped with warning, invalid file types skipped with warning. Form data successfully saved to database in all cases. Email functionality has authentication issues but doesn't affect core API functionality."
   
   - task: "Company info API"
     implemented: true
