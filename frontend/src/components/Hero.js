@@ -77,8 +77,7 @@ const Hero = () => {
       <style jsx>{`
         .hero {
           padding: calc(80px + var(--spacing-giant)) 0 var(--spacing-giant) 0;
-          background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-          color: var(--text-primary);
+          background: var(--primary-white);
         }
         
         .hero-content {
