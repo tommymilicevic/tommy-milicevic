@@ -304,6 +304,44 @@ const Contact = () => {
                 ></textarea>
               </div>
               
+              <div className="form-group">
+                <label htmlFor="photos">Upload Photos (Optional)</label>
+                <div className="file-input-container">
+                  <input
+                    type="file"
+                    id="photos"
+                    name="photos"
+                    multiple
+                    accept="image/*"
+                    onChange={handleFileChange}
+                    disabled={submissionState.loading}
+                    className="file-input"
+                  />
+                  <div className="file-input-label">
+                    <Upload size={20} />
+                    <span>Choose photos to upload</span>
+                  </div>
+                </div>
+                
+                {formData.photos.length > 0 && (
+                  <div className="uploaded-files">
+                    {formData.photos.map((file, index) => (
+                      <div key={index} className="uploaded-file">
+                        <span className="file-name">{file.name}</span>
+                        <button
+                          type="button"
+                          onClick={() => removePhoto(index)}
+                          className="remove-file-btn"
+                          disabled={submissionState.loading}
+                        >
+                          <X size={16} />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+              
               <button 
                 type="submit" 
                 className="btn-primary form-submit"
