@@ -120,10 +120,18 @@ const Header = () => {
         .logo {
           cursor: pointer;
           transition: opacity 0.2s ease;
+          display: flex;
+          align-items: center;
         }
         
         .logo:hover {
           opacity: 0.8;
+        }
+        
+        .logo-image {
+          height: 45px;
+          width: auto;
+          object-fit: contain;
         }
         
         .logo h2 {
