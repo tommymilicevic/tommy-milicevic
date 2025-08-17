@@ -145,7 +145,7 @@ class Database:
                         ],
                         "pricing": {
                             "starting": 95,
-                            "unit": "per property"
+                            "unit": "starting price"
                         },
                         "duration": "1-3 hours", 
                         "availability": "Year-round",
