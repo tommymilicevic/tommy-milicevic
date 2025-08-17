@@ -109,7 +109,7 @@ const Footer = () => {
           <div className="footer-divider"></div>
           <div className="footer-bottom-content">
             <p className="copyright">
-              © 2024 Aurex Exteriors. All rights reserved.
+              © 2023 Aurex Exteriors. All rights reserved.
             </p>
             <div className="footer-bottom-links">
               <a href="#" className="footer-bottom-link">Terms of Service</a>
