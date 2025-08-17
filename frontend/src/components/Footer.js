@@ -156,10 +156,11 @@ const Footer = () => {
         }
         
         .footer-logo-image {
-          height: 60px;
+          height: 80px;
           width: auto;
           object-fit: contain;
           filter: brightness(0) invert(1); /* Makes the logo white */
+          max-width: 250px;
         }
         
         .footer-subtitle {
