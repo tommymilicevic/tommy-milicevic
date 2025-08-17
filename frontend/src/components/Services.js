@@ -330,7 +330,7 @@ const Services = () => {
         .price {
           font-size: 1.5rem;
           font-weight: 700;
-          color: var(--primary-black);
+          color: var(--text-primary);
         }
         
         .price-unit {
