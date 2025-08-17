@@ -9,6 +9,12 @@ from typing import List, Optional
 from fastapi import UploadFile
 import tempfile
 import mimetypes
+from dotenv import load_dotenv
+from pathlib import Path
+
+# Load environment variables
+ROOT_DIR = Path(__file__).parent
+load_dotenv(ROOT_DIR / '.env')
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
@@ -25,6 +31,7 @@ class EmailService:
         
         # Validate required environment variables
         if not all([self.smtp_username, self.smtp_password, self.sender_email, self.recipient_email]):
+            logger.warning(f"Missing email config: username={bool(self.smtp_username)}, password={bool(self.smtp_password)}, sender={bool(self.sender_email)}, recipient={bool(self.recipient_email)}")
             raise ValueError("Missing required email configuration. Please check environment variables.")
     
     async def send_contact_email(
