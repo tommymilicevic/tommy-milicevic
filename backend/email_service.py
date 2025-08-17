@@ -133,13 +133,21 @@ class EmailService:
         Test SMTP connection and authentication
         """
         try:
+            logger.info(f"Testing SMTP connection to {self.smtp_server}:{self.smtp_port}")
+            logger.info(f"Using username: {self.smtp_username}")
+            logger.info(f"Password length: {len(self.smtp_password)} characters")
+            
             with smtplib.SMTP(self.smtp_server, self.smtp_port) as server:
+                server.set_debuglevel(1)  # Enable debug output
+                logger.info("Starting TLS...")
                 server.starttls()
+                logger.info("Attempting login...")
                 server.login(self.smtp_username, self.smtp_password)
                 logger.info("SMTP connection test successful")
                 return True
         except Exception as e:
             logger.error(f"SMTP connection test failed: {str(e)}")
+            logger.error(f"Error type: {type(e)}")
             return False
 
 # Create global email service instance
