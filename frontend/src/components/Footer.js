@@ -33,14 +33,7 @@ const Footer = () => {
       <div className="container">
         <div className="footer-content">
           <div className="footer-section">
-            <div className="footer-logo">
-              <img 
-                src="https://customer-assets.emergentagent.com/job_home-services-mvp/artifacts/3gs3haj3_IMG_8442.png" 
-                alt="Aurex Exteriors Logo" 
-                className="footer-logo-image"
-              />
-              <h3 className="footer-title">Aurex Exteriors</h3>
-            </div>
+            <h3 className="footer-title">Aurex Exteriors</h3>
             <p className="footer-description">
               {companyInfo?.tagline || "Your trusted partner for comprehensive exterior maintenance services. Professional, reliable, and guaranteed satisfaction."}
             </p>
