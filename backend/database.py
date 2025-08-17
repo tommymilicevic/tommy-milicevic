@@ -123,7 +123,7 @@ class Database:
                         ],
                         "pricing": {
                             "starting": 80,
-                            "unit": "per load"
+                            "unit": "starting price"
                         },
                         "duration": "30 minutes - 2 hours",
                         "availability": "Year-round",
