@@ -123,6 +123,7 @@ const Header = () => {
           transition: opacity 0.2s ease;
           display: flex;
           align-items: center;
+          gap: var(--spacing-sm);
         }
         
         .logo:hover {
@@ -130,11 +131,16 @@ const Header = () => {
         }
         
         .logo-image {
-          height: 60px;
+          height: 40px;
           width: auto;
           object-fit: contain;
-          max-width: 300px;
-          background: transparent;
+          max-width: 150px;
+        }
+        
+        .logo-text {
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: var(--primary-black);
         }
         
         .logo h2 {
