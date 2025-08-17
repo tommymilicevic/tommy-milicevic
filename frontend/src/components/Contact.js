@@ -8,7 +8,8 @@ const Contact = () => {
     email: '',
     phone: '',
     service: '',
-    message: ''
+    message: '',
+    photos: []
   });
   
   const [submissionState, setSubmissionState] = useState({
@@ -16,6 +17,8 @@ const Contact = () => {
     success: false,
     error: null
   });
+
+  const [uploadProgress, setUploadProgress] = useState(0);
 
   const [companyInfo, setCompanyInfo] = useState(null);
 
