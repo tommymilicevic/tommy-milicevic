@@ -118,24 +118,10 @@ const Header = () => {
           transition: opacity 0.2s ease;
           display: flex;
           align-items: center;
-          gap: var(--spacing-sm);
         }
         
         .logo:hover {
           opacity: 0.8;
-        }
-        
-        .logo-image {
-          height: 40px;
-          width: auto;
-          object-fit: contain;
-          max-width: 150px;
-        }
-        
-        .logo-text {
-          font-size: 1.5rem;
-          font-weight: 700;
-          color: var(--primary-black);
         }
         
         .logo h2 {
