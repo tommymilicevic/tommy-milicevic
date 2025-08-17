@@ -96,14 +96,14 @@ const Header = () => {
       
       <style jsx>{`
         .header {
-          background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-          border-bottom: 1px solid var(--silver-dark);
+          background: linear-gradient(135deg, var(--primary-white) 0%, var(--silver-shine) 100%);
+          border-bottom: 1px solid var(--silver-medium);
           position: fixed;
           top: 0;
           width: 100%;
           z-index: 1000;
           padding: var(--spacing-md) 0;
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
           backdrop-filter: blur(10px);
         }
         
@@ -125,7 +125,7 @@ const Header = () => {
         }
         
         .logo h2 {
-          color: var(--text-primary);
+          color: var(--primary-black);
           margin: 0;
         }
         
@@ -136,7 +136,7 @@ const Header = () => {
         }
         
         .nav-link {
-          color: var(--text-secondary);
+          color: var(--text-primary);
           text-decoration: none;
           font-weight: 500;
           transition: color 0.2s ease;
@@ -147,7 +147,7 @@ const Header = () => {
         }
         
         .nav-link:hover {
-          color: var(--silver-light);
+          color: var(--silver-dark);
         }
         
         .mobile-menu-btn {
