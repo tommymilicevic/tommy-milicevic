@@ -55,6 +55,7 @@ const Header = () => {
               alt="Aurex Exteriors Logo" 
               className="logo-image"
             />
+            <span className="logo-text">Aurex Exteriors</span>
           </div>
           
           {/* Desktop Navigation */}
