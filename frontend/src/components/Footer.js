@@ -39,6 +39,7 @@ const Footer = () => {
                 alt="Aurex Exteriors Logo" 
                 className="footer-logo-image"
               />
+              <h3 className="footer-title">Aurex Exteriors</h3>
             </div>
             <p className="footer-description">
               {companyInfo?.tagline || "Your trusted partner for comprehensive exterior maintenance services. Professional, reliable, and guaranteed satisfaction."}
