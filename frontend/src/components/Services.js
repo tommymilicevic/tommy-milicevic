@@ -362,29 +362,96 @@ const Services = () => {
         
         .services-cta {
           text-align: center;
-          padding: var(--spacing-xl);
-          background: var(--silver-light);
-          border-radius: 16px;
+          padding: var(--spacing-giant);
+          background: linear-gradient(135deg, var(--primary-black) 0%, var(--silver-dark) 100%);
+          color: var(--primary-white);
+          border-radius: 24px;
           margin-top: var(--spacing-xl);
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .services-cta::before {
+          content: '';
+          position: absolute;
+          top: -50%;
+          left: -50%;
+          width: 200%;
+          height: 200%;
+          background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+          animation: shine 4s infinite;
+        }
+        
+        @keyframes shine {
+          0% { transform: rotate(0deg) translateX(-100%); }
+          100% { transform: rotate(0deg) translateX(100%); }
         }
         
         .services-cta h3 {
+          color: var(--primary-white);
           margin-bottom: var(--spacing-md);
+          position: relative;
+          z-index: 2;
         }
         
         .services-cta p {
+          color: var(--silver-light);
           margin-bottom: var(--spacing-lg);
-          color: var(--text-secondary);
+          position: relative;
+          z-index: 2;
+        }
+        
+        .services-cta .btn-primary {
+          background: var(--primary-white);
+          color: var(--primary-black);
+          border: 2px solid var(--primary-white);
+          position: relative;
+          z-index: 2;
+          font-weight: 600;
+          padding: 16px 32px;
+          border-radius: 12px;
+        }
+        
+        .services-cta .btn-primary:hover {
+          background: transparent;
+          color: var(--primary-white);
+          border-color: var(--primary-white);
+          transform: translateY(-3px);
+          box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
         }
         
         @media (max-width: 768px) {
           .services-grid {
             grid-template-columns: 1fr;
-            gap: var(--spacing-md);
+            gap: var(--spacing-lg);
           }
           
           .service-card {
             padding: var(--spacing-lg);
+          }
+          
+          .service-header {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+          }
+          
+          .service-footer {
+            flex-direction: column;
+            gap: var(--spacing-md);
+          }
+          
+          .service-pricing {
+            align-items: center;
+            text-align: center;
+          }
+          
+          .service-btn {
+            width: 100%;
+          }
+          
+          .services-cta {
+            padding: var(--spacing-xl);
           }
         }
       `}</style>
