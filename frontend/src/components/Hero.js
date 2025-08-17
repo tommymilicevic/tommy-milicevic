@@ -1,12 +1,12 @@
 import React from 'react';
 import { CheckCircle, Star, Droplets, Zap, Trash2, Leaf } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
-  const scrollToContact = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
+  const navigate = useNavigate();
+
+  const handleGetQuote = () => {
+    navigate('/quote');
   };
 
   return (
@@ -38,7 +38,7 @@ const Hero = () => {
             </div>
             
             <div className="hero-cta">
-              <button className="btn-primary hero-btn" onClick={scrollToContact}>Get Free Quote</button>
+              <button className="btn-primary hero-btn" onClick={handleGetQuote}>Get Free Quote</button>
               <a href="tel:0424910154" className="btn-secondary hero-btn">Call Mo: 0424 910 154</a>
               <a href="tel:0450515119" className="btn-secondary hero-btn">Call Tom: 0450 515 119</a>
             </div>

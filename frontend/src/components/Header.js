@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const navItems = [
     { name: 'Home', href: '#home' },
@@ -12,11 +14,8 @@ const Header = () => {
     { name: 'Contact', href: '#contact' }
   ];
 
-  const scrollToContact = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
+  const handleGetQuote = () => {
+    navigate('/quote');
   };
 
   return (
@@ -36,7 +35,7 @@ const Header = () => {
             ))}
           </div>
           
-          <button className="btn-primary" onClick={scrollToContact}>Get Quote</button>
+          <button className="btn-primary" onClick={handleGetQuote}>Get Quote</button>
           
           {/* Mobile Menu Button */}
           <button 
@@ -60,7 +59,7 @@ const Header = () => {
                 {item.name}
               </a>
             ))}
-            <button className="btn-primary mobile-cta" onClick={scrollToContact}>Get Quote</button>
+            <button className="btn-primary mobile-cta" onClick={handleGetQuote}>Get Quote</button>
           </div>
         )}
       </div>

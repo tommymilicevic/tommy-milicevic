@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Star, Quote, Loader2 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { apiService } from '../services/api';
 
 const Testimonials = () => {
   const [testimonials, setTestimonials] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
-  const scrollToContact = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
+  const handleGetQuote = () => {
+    navigate('/quote');
   };
 
   useEffect(() => {
@@ -162,7 +161,7 @@ const Testimonials = () => {
         <div className="testimonials-cta">
           <h3 className="heading-2">Ready to Join Our Happy Customers?</h3>
           <p className="body-large">Experience the Aurex Exteriors difference for yourself.</p>
-          <button className="btn-primary" onClick={scrollToContact}>Get Your Free Quote</button>
+          <button className="btn-primary" onClick={handleGetQuote}>Get Your Free Quote</button>
         </div>
       </div>
       

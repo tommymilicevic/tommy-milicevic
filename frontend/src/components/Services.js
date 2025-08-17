@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Droplets, Scissors, Trash2, Home, TreePine, Loader2 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { apiService } from '../services/api';
 
 const Services = () => {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   // Icon mapping
   const iconMap = {
@@ -16,11 +18,8 @@ const Services = () => {
     'scissors': Scissors
   };
 
-  const scrollToContact = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
+  const handleGetQuote = () => {
+    navigate('/quote');
   };
 
   useEffect(() => {
@@ -152,7 +151,7 @@ const Services = () => {
                 <span className="price">Starting at ${service.pricing.starting}</span>
                 <span className="price-unit">{service.pricing.unit}</span>
               </div>
-              <button className="btn-secondary service-btn" onClick={scrollToContact}>Get Quote</button>
+              <button className="btn-secondary service-btn" onClick={handleGetQuote}>Get Quote</button>
             </div>
           ))}
         </div>
@@ -160,7 +159,7 @@ const Services = () => {
         <div className="services-cta">
           <h3 className="heading-2">Need Multiple Services?</h3>
           <p className="body-large">Get a bundled quote and save up to 10% on combined services.</p>
-          <button className="btn-primary" onClick={scrollToContact}>Get Bundle Quote</button>
+          <button className="btn-primary" onClick={handleGetQuote}>Get Bundle Quote</button>
         </div>
       </div>
       
