@@ -25,9 +25,17 @@ class EmailService:
         self.smtp_server = os.environ.get('SMTP_SERVER', 'smtp.gmail.com')
         self.smtp_port = int(os.environ.get('SMTP_PORT', '587'))
         self.smtp_username = os.environ.get('SMTP_USERNAME')
-        self.smtp_password = os.environ.get('SMTP_PASSWORD')
+        self.smtp_password = os.environ.get('SMTP_PASSWORD', '').strip('"\'')  # Remove quotes if present
         self.sender_email = os.environ.get('SENDER_EMAIL')
         self.recipient_email = os.environ.get('RECIPIENT_EMAIL')
+        
+        # Log configuration (without password)
+        logger.info(f"Email service configured:")
+        logger.info(f"  SMTP Server: {self.smtp_server}")
+        logger.info(f"  SMTP Port: {self.smtp_port}")
+        logger.info(f"  Username: {self.smtp_username}")
+        logger.info(f"  Sender: {self.sender_email}")
+        logger.info(f"  Recipient: {self.recipient_email}")
         
         # Validate required environment variables
         if not all([self.smtp_username, self.smtp_password, self.sender_email, self.recipient_email]):
