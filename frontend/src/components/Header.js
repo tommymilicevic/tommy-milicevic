@@ -106,7 +106,7 @@ const Header = () => {
           top: 0;
           width: 100%;
           z-index: 1000;
-          padding: var(--spacing-sm) 0;
+          padding: var(--spacing-md) 0;
           box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
           backdrop-filter: blur(10px);
         }
