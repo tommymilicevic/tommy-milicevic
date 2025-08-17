@@ -25,7 +25,7 @@ const Hero = () => {
             <div className="hero-features">
               <div className="feature-item">
                 <CheckCircle size={20} className="feature-icon" />
-                <span>Licensed & Insured</span>
+                <span>Fully Insured</span>
               </div>
               <div className="feature-item">
                 <CheckCircle size={20} className="feature-icon" />
