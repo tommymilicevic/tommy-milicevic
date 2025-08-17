@@ -151,6 +151,17 @@ const Footer = () => {
           font-weight: 600;
         }
         
+        .footer-logo {
+          margin-bottom: var(--spacing-md);
+        }
+        
+        .footer-logo-image {
+          height: 60px;
+          width: auto;
+          object-fit: contain;
+          filter: brightness(0) invert(1); /* Makes the logo white */
+        }
+        
         .footer-subtitle {
           color: var(--primary-white);
           font-size: 1.1rem;
