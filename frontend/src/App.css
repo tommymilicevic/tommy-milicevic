@@ -1,16 +1,23 @@
 /* Custom Color Variables */
 :root {
-  /* Black, White, Silver Theme */
+  /* Dark Theme with Silver Accents */
   --primary-black: #000000;
-  --primary-white: #FFFFFF;
+  --primary-white: #ffffff;
   --silver-light: #F5F5F5;
   --silver-medium: #C0C0C0;
   --silver-dark: #808080;
   --silver-metallic: #B8B8B8;
   --silver-shine: #E8E8E8;
-  --text-primary: #000000;
-  --text-secondary: #404040;
-  --text-light: #666666;
+  
+  /* Dark Theme Colors */
+  --bg-primary: #000000;
+  --bg-secondary: #1a1a1a;
+  --bg-card: #111111;
+  
+  /* Text Colors for Dark Theme */
+  --text-primary: #ffffff;
+  --text-secondary: #E8E8E8;
+  --text-light: #C0C0C0;
   
   /* Spacing System */
   --spacing-xs: 8px;
