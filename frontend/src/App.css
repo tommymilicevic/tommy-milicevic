@@ -1,36 +1,16 @@
 /* Custom Color Variables */
 :root {
-  /* Vibrant Exterior Services Theme */
-  --primary-black: #1a1a1a;
-  --primary-white: #ffffff;
-  
-  /* Vibrant Primary Colors */
-  --primary-blue: #2563eb;
-  --primary-green: #059669;
-  --primary-orange: #ea580c;
-  --accent-yellow: #f59e0b;
-  
-  /* Secondary Colors */
-  --secondary-blue: #3b82f6;
-  --secondary-green: #10b981;
-  --secondary-orange: #fb923c;
-  
-  /* Background Gradients */
-  --bg-gradient-1: linear-gradient(135deg, #2563eb 0%, #059669 100%);
-  --bg-gradient-2: linear-gradient(135deg, #059669 0%, #f59e0b 100%);
-  --bg-gradient-3: linear-gradient(135deg, #ea580c 0%, #2563eb 100%);
-  
-  /* Silver/Gray (keeping for balance) */
-  --silver-light: #f1f5f9;
-  --silver-medium: #cbd5e1;
-  --silver-dark: #64748b;
-  --silver-metallic: #94a3b8;
-  --silver-shine: #e2e8f0;
-  
-  /* Text Colors */
-  --text-primary: #1e293b;
-  --text-secondary: #475569;
-  --text-light: #64748b;
+  /* Black, White, Silver Theme */
+  --primary-black: #000000;
+  --primary-white: #FFFFFF;
+  --silver-light: #F5F5F5;
+  --silver-medium: #C0C0C0;
+  --silver-dark: #808080;
+  --silver-metallic: #B8B8B8;
+  --silver-shine: #E8E8E8;
+  --text-primary: #000000;
+  --text-secondary: #404040;
+  --text-light: #666666;
   
   /* Spacing System */
   --spacing-xs: 8px;
