@@ -50,12 +50,7 @@ const Header = () => {
       <div className="container">
         <nav className="nav-wrapper">
           <div className="logo" onClick={handleLogoClick}>
-            <img 
-              src="https://customer-assets.emergentagent.com/job_home-services-mvp/artifacts/3gs3haj3_IMG_8442.png" 
-              alt="Aurex Exteriors Logo" 
-              className="logo-image"
-            />
-            <span className="logo-text">Aurex Exteriors</span>
+            <h2 className="heading-3">Aurex Exteriors</h2>
           </div>
           
           {/* Desktop Navigation */}
