@@ -181,20 +181,7 @@ const Services = () => {
       
       <style jsx>{`
         .services {
-          background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
-          position: relative;
-        }
-        
-        .services::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: radial-gradient(circle at 70% 20%, rgba(5, 150, 105, 0.05) 0%, transparent 50%),
-                      radial-gradient(circle at 30% 80%, rgba(234, 88, 12, 0.05) 0%, transparent 50%);
-          pointer-events: none;
+          background: var(--primary-white);
         }
         
         .section-header {
