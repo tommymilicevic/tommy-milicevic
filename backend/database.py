@@ -101,7 +101,7 @@ class Database:
                         ],
                         "pricing": {
                             "starting": 50,
-                            "unit": "per hour"
+                            "unit": "starting price"
                         },
                         "duration": "2-6 hours",
                         "availability": "Spring to Fall",
