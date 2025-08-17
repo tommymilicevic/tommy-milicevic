@@ -12,6 +12,13 @@ const Header = () => {
     { name: 'Contact', href: '#contact' }
   ];
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <header className="header">
       <div className="container">
