@@ -60,7 +60,7 @@ const Header = () => {
                 {item.name}
               </a>
             ))}
-            <button className="btn-primary mobile-cta">Get Quote</button>
+            <button className="btn-primary mobile-cta" onClick={scrollToContact}>Get Quote</button>
           </div>
         )}
       </div>
