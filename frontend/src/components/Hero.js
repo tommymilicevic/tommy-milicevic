@@ -183,26 +183,32 @@ const Hero = () => {
           100% { transform: rotate(0deg) translateX(100%); }
         }
         
-        .logo-display {
-          display: flex;
-          align-items: center;
-          justify-content: center;
+        .service-icons {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: var(--spacing-lg);
           z-index: 2;
           position: relative;
         }
         
-        .hero-logo {
-          height: 120px;
-          width: auto;
-          object-fit: contain;
-          max-width: 200px;
-          filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+        .icon-item {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: var(--spacing-sm);
+          background: linear-gradient(145deg, var(--primary-white) 0%, var(--silver-shine) 100%);
+          border-radius: 12px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+          border: 1px solid var(--silver-medium);
           transition: all 0.3s ease;
+          color: var(--primary-black);
         }
         
-        .hero-logo:hover {
-          transform: scale(1.05);
-          filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.2));
+        .icon-item:hover {
+          transform: translateY(-2px) scale(1.02);
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+          background: linear-gradient(145deg, var(--silver-shine) 0%, var(--primary-white) 100%);
+          color: var(--silver-dark);
         }
         
         @media (max-width: 768px) {
