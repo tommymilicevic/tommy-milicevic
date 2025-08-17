@@ -113,7 +113,8 @@ const Contact = () => {
           email: '',
           phone: '',
           service: '',
-          message: ''
+          message: '',
+          photos: []
         });
         
         // Clear success message after 5 seconds
