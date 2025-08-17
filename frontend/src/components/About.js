@@ -16,8 +16,8 @@ const About = () => {
           <div className="about-text">
             <h2 className="heading-1">Why Choose Aurex Exteriors?</h2>
             <p className="body-large about-description">
-              With over 2 years of experience in home maintenance, we've built our reputation 
-              on reliability, quality, and customer satisfaction. Our team of licensed professionals 
+              Established in 2023, we've built our reputation 
+              on reliability, quality, and customer satisfaction. Our team of professionals 
               is committed to exceeding your expectations.
             </p>
             
