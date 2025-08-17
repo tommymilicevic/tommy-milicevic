@@ -214,22 +214,74 @@ async def create_quote_request(quote_request: QuoteRequestCreate):
 
 # Contact form endpoint
 @api_router.post("/contact", response_model=APIResponse)
-async def create_contact_submission(contact: ContactSubmissionCreate):
+async def create_contact_submission(
+    name: str = Form(...),
+    email: str = Form(...),
+    phone: Optional[str] = Form(None),
+    service: str = Form(...),
+    message: str = Form(...),
+    photos: List[UploadFile] = File(default=[])
+):
     try:
+        logger.info(f"Received contact form submission from {name} ({email})")
+        
+        # Validate photo files if provided
+        valid_photos = []
+        if photos and photos[0].filename:  # Check if actual files were uploaded
+            for photo in photos:
+                # Check file size (limit to 10MB)
+                content = await photo.read()
+                if len(content) > 10 * 1024 * 1024:  # 10MB limit
+                    logger.warning(f"Photo {photo.filename} exceeds size limit")
+                    continue
+                
+                # Check file type
+                if not photo.content_type or not photo.content_type.startswith('image/'):
+                    logger.warning(f"Photo {photo.filename} is not an image")
+                    continue
+                
+                # Reset file pointer
+                await photo.seek(0)
+                valid_photos.append(photo)
+        
         # Create contact submission
-        contact_data = contact.dict()
-        contact_data.update({
+        contact_data = {
+            "name": name,
+            "email": email,
+            "phone": phone,
+            "service": service,
+            "message": message,
             "status": "new",
             "created_at": datetime.utcnow()
-        })
+        }
         
         # Save to database
         await database.create_contact_submission(contact_data)
+        logger.info("Contact submission saved to database")
         
-        return APIResponse(
-            success=True,
-            message="Thank you for contacting us! We'll respond within 2 hours."
+        # Send email notification
+        email_sent = await email_service.send_contact_email(
+            name=name,
+            email=email,
+            phone=phone,
+            service=service,
+            message=message,
+            photos=valid_photos
         )
+        
+        if email_sent:
+            logger.info("Email notification sent successfully")
+            return APIResponse(
+                success=True,
+                message="Thank you for contacting us! We've received your message and photos. We'll respond within 2 hours."
+            )
+        else:
+            logger.warning("Email notification failed, but form data was saved")
+            return APIResponse(
+                success=True,
+                message="Thank you for contacting us! We've received your message. We'll respond within 2 hours."
+            )
+            
     except Exception as e:
         logger.error(f"Error creating contact submission: {e}")
         raise HTTPException(
