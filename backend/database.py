@@ -79,7 +79,7 @@ class Database:
                         ],
                         "pricing": {
                             "starting": 100,
-                            "unit": "per service"
+                            "unit": "starting price"
                         },
                         "duration": "2-4 hours",
                         "availability": "Year-round",
