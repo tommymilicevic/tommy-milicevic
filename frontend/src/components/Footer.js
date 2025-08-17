@@ -122,8 +122,8 @@ const Footer = () => {
       
       <style jsx>{`
         .footer {
-          background: var(--primary-black);
-          color: var(--primary-white);
+          background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+          color: var(--text-primary);
           padding: var(--spacing-giant) 0 var(--spacing-lg) 0;
         }
         
