@@ -77,22 +77,7 @@ const Hero = () => {
       <style jsx>{`
         .hero {
           padding: calc(80px + var(--spacing-giant)) 0 var(--spacing-giant) 0;
-          background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%);
-          position: relative;
-          overflow: hidden;
-        }
-        
-        .hero::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
-                      radial-gradient(circle at 80% 20%, rgba(5, 150, 105, 0.1) 0%, transparent 50%),
-                      radial-gradient(circle at 40% 80%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
-          pointer-events: none;
+          background: var(--primary-white);
         }
         
         .hero-content {
