@@ -111,7 +111,7 @@ const Hero = () => {
         }
         
         .feature-icon {
-          color: var(--silver-light);
+          color: var(--primary-black);
         }
         
         .hero-cta {
