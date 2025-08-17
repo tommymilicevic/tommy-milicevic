@@ -1,4 +1,4 @@
-from fastapi import FastAPI, APIRouter, HTTPException, status
+from fastapi import FastAPI, APIRouter, HTTPException, status, Form, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 from pathlib import Path
@@ -6,6 +6,7 @@ import os
 import logging
 from datetime import datetime
 import random
+from typing import List, Optional
 
 # Import models and database
 from models import (
@@ -17,6 +18,7 @@ from models import (
     APIResponse
 )
 from database import database
+from email_service import email_service
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
