@@ -101,8 +101,8 @@ body {
 
 /* Button Styles */
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary-black) 0%, var(--silver-dark) 100%);
-  color: var(--primary-white);
+  background: linear-gradient(135deg, var(--silver-medium) 0%, var(--silver-light) 100%);
+  color: var(--primary-black);
   border: none;
   border-radius: 25px;
   padding: 14px 32px;
@@ -114,18 +114,18 @@ body {
   display: inline-block;
   min-height: 48px;
   line-height: 1.2;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(192, 192, 192, 0.3);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, var(--silver-dark) 0%, var(--primary-black) 100%);
+  background: linear-gradient(135deg, var(--silver-light) 0%, var(--primary-white) 100%);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 25px rgba(192, 192, 192, 0.4);
 }
 
 .btn-secondary {
-  background: linear-gradient(135deg, var(--primary-white) 0%, var(--silver-shine) 100%);
-  color: var(--primary-black);
+  background: transparent;
+  color: var(--silver-light);
   border: 2px solid var(--silver-medium);
   border-radius: 25px;
   padding: 12px 30px;
@@ -136,11 +136,11 @@ body {
   text-decoration: none;
   display: inline-block;
   min-height: 48px;
-  box-shadow: 0 4px 15px rgba(192, 192, 192, 0.2);
+  box-shadow: 0 4px 15px rgba(192, 192, 192, 0.1);
 }
 
 .btn-secondary:hover {
-  background: linear-gradient(135deg, var(--silver-medium) 0%, var(--silver-light) 100%);
+  background: var(--silver-medium);
   color: var(--primary-black);
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(192, 192, 192, 0.3);
