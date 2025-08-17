@@ -143,19 +143,24 @@ class EmailService:
         try:
             logger.info(f"Testing SMTP connection to {self.smtp_server}:{self.smtp_port}")
             logger.info(f"Using username: {self.smtp_username}")
-            logger.info(f"Password length: {len(self.smtp_password)} characters")
             
             with smtplib.SMTP(self.smtp_server, self.smtp_port) as server:
-                server.set_debuglevel(1)  # Enable debug output
                 logger.info("Starting TLS...")
                 server.starttls()
                 logger.info("Attempting login...")
                 server.login(self.smtp_username, self.smtp_password)
-                logger.info("SMTP connection test successful")
+                logger.info("✅ SMTP connection test successful")
                 return True
+        except smtplib.SMTPAuthenticationError as e:
+            logger.error(f"❌ Gmail authentication failed. The password 'MohamadTommy2905' is not accepted by Gmail.")
+            logger.error(f"This is likely because:")
+            logger.error(f"1. This is not a Gmail App Password (App passwords are 16 characters like 'abcd efgh ijkl mnop')")
+            logger.error(f"2. 2-Factor Authentication is not enabled on aurexexteriors@gmail.com")
+            logger.error(f"3. App passwords are not enabled for this account")
+            logger.error(f"Gmail error: {str(e)}")
+            return False
         except Exception as e:
             logger.error(f"SMTP connection test failed: {str(e)}")
-            logger.error(f"Error type: {type(e)}")
             return False
 
 # Create global email service instance
