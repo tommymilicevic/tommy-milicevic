@@ -139,7 +139,6 @@ const Services = () => {
                 </div>
                 <div className="service-title">
                   <h3 className="heading-3">{service.name}</h3>
-                  <p className="service-duration">{service.duration}</p>
                 </div>
               </div>
               
