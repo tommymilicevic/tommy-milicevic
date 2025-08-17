@@ -205,14 +205,14 @@ const Services = () => {
         }
         
         .service-card {
-          background: var(--bg-card);
-          border: 2px solid var(--silver-dark);
+          background: var(--primary-white);
+          border: 2px solid var(--silver-light);
           border-radius: 20px;
           padding: var(--spacing-xl);
           transition: all 0.3s ease;
           position: relative;
           overflow: hidden;
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
         
         .service-card::before {
@@ -222,13 +222,13 @@ const Services = () => {
           left: 0;
           right: 0;
           height: 4px;
-          background: linear-gradient(90deg, var(--silver-medium) 0%, var(--silver-light) 100%);
+          background: linear-gradient(90deg, var(--primary-black) 0%, var(--silver-dark) 100%);
         }
         
         .service-card:hover {
           transform: translateY(-8px);
-          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-          border-color: var(--silver-light);
+          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+          border-color: var(--silver-medium);
         }
         
         .service-header {
@@ -260,7 +260,7 @@ const Services = () => {
         
         .service-title h3 {
           margin: 0;
-          color: var(--text-primary);
+          color: var(--primary-black);
         }
         
         .service-description {
@@ -275,7 +275,7 @@ const Services = () => {
         
         .features-title {
           font-weight: 600;
-          color: var(--text-primary);
+          color: var(--primary-black);
           font-size: 0.95rem;
           margin-bottom: var(--spacing-sm);
         }
@@ -297,7 +297,7 @@ const Services = () => {
         }
         
         .feature-check {
-          color: var(--silver-light);
+          color: var(--primary-black);
           font-weight: bold;
           font-size: 1rem;
           flex-shrink: 0;
