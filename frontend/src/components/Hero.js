@@ -55,19 +55,12 @@ const Hero = () => {
           
           <div className="hero-image">
             <div className="image-placeholder">
-              <div className="service-icons">
-                <div className="icon-item">
-                  <Droplets size={28} />
-                </div>
-                <div className="icon-item">
-                  <Zap size={28} />
-                </div>
-                <div className="icon-item">
-                  <Trash2 size={28} />
-                </div>
-                <div className="icon-item">
-                  <Leaf size={28} />
-                </div>
+              <div className="logo-display">
+                <img 
+                  src="https://customer-assets.emergentagent.com/job_home-services-mvp/artifacts/3gs3haj3_IMG_8442.png" 
+                  alt="Aurex Exteriors Logo" 
+                  className="hero-logo"
+                />
               </div>
             </div>
           </div>
