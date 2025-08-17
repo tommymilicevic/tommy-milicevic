@@ -259,15 +259,8 @@ const Services = () => {
         }
         
         .service-title h3 {
-          margin: 0 0 var(--spacing-xs) 0;
-          color: var(--primary-black);
-        }
-        
-        .service-duration {
-          color: var(--text-light);
-          font-size: 0.9rem;
           margin: 0;
-          font-weight: 500;
+          color: var(--primary-black);
         }
         
         .service-description {
