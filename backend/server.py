@@ -47,7 +47,7 @@ async def shutdown_event():
 # Health check endpoint
 @api_router.get("/")
 async def root():
-    return {"message": "CleanPro Services API is running", "status": "healthy"}
+    return {"message": "Aurex Exteriors API is running", "status": "healthy"}
 
 # Services endpoints
 @api_router.get("/services", response_model=ServicesResponse)
