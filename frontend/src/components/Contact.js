@@ -113,7 +113,22 @@ const Contact = () => {
     setSubmissionState({ loading: true, success: false, error: null });
 
     try {
-      const response = await apiService.submitContactForm(formData);
+      // Create FormData for file upload
+      const formDataToSend = new FormData();
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('phone', formData.phone || '');
+      formDataToSend.append('service', formData.service);
+      formDataToSend.append('message', formData.message || '');
+      
+      // Add photo files
+      if (formData.photos && formData.photos.length > 0) {
+        formData.photos.forEach((photo) => {
+          formDataToSend.append('photos', photo);
+        });
+      }
+      
+      const response = await apiService.submitContactFormWithFiles(formDataToSend);
       
       if (response.success) {
         setSubmissionState({
