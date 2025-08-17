@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Droplets, Scissors, Trash2, Home, TreePine, Loader2 } from 'lucide-react';
+import { Droplets, Scissors, Trash2, Home, TreePine, Loader2, Paintbrush } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { apiService } from '../services/api';
 
@@ -15,7 +15,8 @@ const Services = () => {
     'tree-pine': TreePine,
     'trash-2': Trash2,
     'home': Home,
-    'scissors': Scissors
+    'scissors': Scissors,
+    'brush': Paintbrush
   };
 
   const handleGetQuote = () => {
