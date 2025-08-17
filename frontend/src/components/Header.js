@@ -24,14 +24,14 @@ const Header = () => {
       }
     } else {
       // If on another page, navigate to homepage with hash
-      navigate(`/#${section}`);
-      // After navigation, scroll to section
+      navigate('/');
+      // After navigation, scroll to section with longer delay
       setTimeout(() => {
         const element = document.getElementById(section);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
         }
-      }, 100);
+      }, 500); // Increased delay
     }
     setIsMenuOpen(false);
   };
