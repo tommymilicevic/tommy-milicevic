@@ -36,7 +36,7 @@ const Header = () => {
             ))}
           </div>
           
-          <button className="btn-primary">Get Quote</button>
+          <button className="btn-primary" onClick={scrollToContact}>Get Quote</button>
           
           {/* Mobile Menu Button */}
           <button 
