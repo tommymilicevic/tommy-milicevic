@@ -59,74 +59,152 @@ class Database:
             logger.error(f"Error initializing data: {e}")
 
     async def _init_services(self):
-        """Initialize services collection with sample data"""
+        """Initialize default services if collection is empty"""
         from datetime import datetime
-        
-        services_data = [
-            {
-                "name": "Pressure Washing",
-                "description": "Professional pressure washing for driveways, sidewalks, decks, and building exteriors. Remove years of dirt and grime.",
-                "icon": "droplets",
-                "features": ["Driveways & Sidewalks", "Building Exteriors", "Decks & Patios", "Eco-friendly Solutions"],
-                "pricing": {"starting": 100, "unit": "starting price"},
-                "duration": "2-4 hours",
-                "availability": "Available daily",
-                "active": True,
-                "created_at": datetime.utcnow(),
-                "updated_at": datetime.utcnow()
-            },
-            {
-                "name": "Gardening Services",
-                "description": "Complete garden maintenance including planting, pruning, weeding, and seasonal garden care.",
-                "icon": "tree-pine",
-                "features": ["Garden Design", "Plant Installation", "Pruning & Trimming", "Seasonal Maintenance"],
-                "pricing": {"starting": 50, "unit": "starting price"},
-                "duration": "Varies by project",
-                "availability": "Mon-Sat",
-                "active": True,
-                "created_at": datetime.utcnow(),
-                "updated_at": datetime.utcnow()
-            },
-            {
-                "name": "Rubbish Removal",
-                "description": "Fast and reliable waste removal service for household, garden, and construction debris.",
-                "icon": "trash-2",
-                "features": ["Household Waste", "Garden Debris", "Construction Waste", "Same Day Pickup"],
-                "pricing": {"starting": 80, "unit": "starting price"},
-                "duration": "1-2 hours",
-                "availability": "Available daily",
-                "active": True,
-                "created_at": datetime.utcnow(),
-                "updated_at": datetime.utcnow()
-            },
-            {
-                "name": "Gutter Cleaning",
-                "description": "Thorough gutter cleaning and maintenance to protect your home from water damage.",
-                "icon": "home",
-                "features": ["Gutter Cleaning", "Downspout Clearing", "Gutter Repairs", "Maintenance Programs"],
-                "pricing": {"starting": 95, "unit": "starting price"},
-                "duration": "2-3 hours",
-                "availability": "Mon-Sat",
-                "active": True,
-                "created_at": datetime.utcnow(),
-                "updated_at": datetime.utcnow()
-            },
-            {
-                "name": "Lawn Mowing",
-                "description": "Regular lawn mowing and grass care to keep your property looking pristine year-round.",
-                "icon": "scissors",
-                "features": ["Weekly Mowing", "Edge Trimming", "Grass Care Tips", "Seasonal Packages"],
-                "pricing": {"starting": 50, "unit": "per visit"},
-                "duration": "1-2 hours",
-                "availability": "Mon-Sat",
-                "active": True,
-                "created_at": datetime.utcnow(),
-                "updated_at": datetime.utcnow()
-            }
-        ]
-        
-        await self.db.services.insert_many(services_data)
-        logger.info("Initialized services data")
+        try:
+            existing_count = await self.db.services.count_documents({})
+            if existing_count == 0:
+                default_services = [
+                    {
+                        "id": "pressure-washing",
+                        "name": "Pressure Washing",
+                        "description": "Professional high-pressure cleaning for driveways, sidewalks, decks, and building exteriors. Remove years of dirt, grime, and stains.",
+                        "icon": "droplets",
+                        "features": [
+                            "Driveway & Walkway Cleaning",
+                            "Deck & Patio Restoration", 
+                            "Building Exterior Wash",
+                            "Concrete & Stone Cleaning",
+                            "Eco-Friendly Solutions"
+                        ],
+                        "pricing": {
+                            "starting": 100,
+                            "unit": "per service"
+                        },
+                        "duration": "2-4 hours",
+                        "availability": "Year-round",
+                        "active": True,
+                        "created_at": datetime.utcnow(),
+                        "updated_at": datetime.utcnow()
+                    },
+                    {
+                        "id": "gardening-services", 
+                        "name": "Gardening Services",
+                        "description": "Complete garden maintenance including planting, pruning, weeding, and seasonal garden care to keep your landscape beautiful.",
+                        "icon": "tree-pine",
+                        "features": [
+                            "Garden Design & Planting",
+                            "Pruning & Tree Care",
+                            "Weeding & Maintenance", 
+                            "Seasonal Garden Care",
+                            "Mulching & Fertilizing"
+                        ],
+                        "pricing": {
+                            "starting": 50,
+                            "unit": "per hour"
+                        },
+                        "duration": "2-6 hours",
+                        "availability": "Spring to Fall",
+                        "active": True,
+                        "created_at": datetime.utcnow(),
+                        "updated_at": datetime.utcnow()
+                    },
+                    {
+                        "id": "rubbish-removal",
+                        "name": "Rubbish Removal", 
+                        "description": "Fast and reliable waste removal service for household, garden, and construction debris. Same-day pickup available.",
+                        "icon": "trash-2",
+                        "features": [
+                            "Household Waste Removal",
+                            "Garden & Yard Debris",
+                            "Construction Materials",
+                            "Furniture & Appliances", 
+                            "Same-Day Service Available"
+                        ],
+                        "pricing": {
+                            "starting": 80,
+                            "unit": "per load"
+                        },
+                        "duration": "30 minutes - 2 hours",
+                        "availability": "Year-round",
+                        "active": True,
+                        "created_at": datetime.utcnow(),
+                        "updated_at": datetime.utcnow()
+                    },
+                    {
+                        "id": "gutter-cleaning",
+                        "name": "Gutter Cleaning",
+                        "description": "Thorough gutter and downspout cleaning to prevent water damage and maintain proper drainage around your property.",
+                        "icon": "home",
+                        "features": [
+                            "Complete Gutter Cleaning",
+                            "Downspout Clearing",
+                            "Debris Removal",
+                            "Water Damage Prevention",
+                            "Safety Inspection Included"
+                        ],
+                        "pricing": {
+                            "starting": 95,
+                            "unit": "per property"
+                        },
+                        "duration": "1-3 hours", 
+                        "availability": "Year-round",
+                        "active": True,
+                        "created_at": datetime.utcnow(),
+                        "updated_at": datetime.utcnow()
+                    },
+                    {
+                        "id": "lawn-mowing",
+                        "name": "Lawn Mowing & Care",
+                        "description": "Regular lawn maintenance including mowing, edging, trimming, and seasonal lawn care for a pristine outdoor space.",
+                        "icon": "scissors", 
+                        "features": [
+                            "Professional Lawn Mowing",
+                            "Edge Trimming & Cleanup",
+                            "Grass Collection & Disposal",
+                            "Seasonal Lawn Treatments",
+                            "Regular Maintenance Plans"
+                        ],
+                        "pricing": {
+                            "starting": 45,
+                            "unit": "per visit"
+                        },
+                        "duration": "1-2 hours",
+                        "availability": "Spring to Fall",
+                        "active": True,
+                        "created_at": datetime.utcnow(),
+                        "updated_at": datetime.utcnow()
+                    },
+                    {
+                        "id": "painting-services",
+                        "name": "Painting Services",
+                        "description": "Professional exterior and interior painting services. Transform your property with high-quality paints and expert application.",
+                        "icon": "brush",
+                        "features": [
+                            "Exterior House Painting",
+                            "Interior Room Painting",
+                            "Surface Preparation & Priming",
+                            "Premium Quality Paints",
+                            "Color Consultation Available"
+                        ],
+                        "pricing": {
+                            "starting": 200,
+                            "unit": "per room"
+                        },
+                        "duration": "1-3 days",
+                        "availability": "Year-round",
+                        "active": True,
+                        "created_at": datetime.utcnow(),
+                        "updated_at": datetime.utcnow()
+                    }
+                ]
+                
+                result = await self.db.services.insert_many(default_services)
+                logger.info(f"Initialized {len(result.inserted_ids)} default services")
+            else:
+                logger.info(f"Services collection already has {existing_count} services")
+        except Exception as e:
+            logger.error(f"Error initializing services: {e}")
 
     async def _init_testimonials(self):
         """Initialize testimonials collection with sample data"""
