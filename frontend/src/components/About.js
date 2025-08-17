@@ -25,8 +25,8 @@ const About = () => {
               <div className="feature-row">
                 <Shield size={24} className="feature-icon" />
                 <div>
-                  <h4 className="heading-3">Licensed & Insured</h4>
-                  <p className="body-medium">Fully licensed and insured for your peace of mind.</p>
+                  <h4 className="heading-3">Fully Insured</h4>
+                  <p className="body-medium">Fully insured for your peace of mind.</p>
                 </div>
               </div>
               
