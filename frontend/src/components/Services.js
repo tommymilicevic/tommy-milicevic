@@ -133,26 +133,42 @@ const Services = () => {
         <div className="services-grid">
           {services.map((service) => (
             <div key={service.id} className="service-card">
-              <div className="service-icon">
-                {getIcon(service.icon)}
+              <div className="service-header">
+                <div className="service-icon">
+                  {getIcon(service.icon)}
+                </div>
+                <div className="service-title">
+                  <h3 className="heading-3">{service.name}</h3>
+                  <p className="service-duration">{service.duration}</p>
+                </div>
               </div>
-              <h3 className="heading-3">{service.name}</h3>
+              
               <p className="body-medium service-description">
                 {service.description}
               </p>
-              <ul className="service-features">
-                {service.features.map((feature, index) => (
-                  <li key={index} className="feature-item">
-                    <span className="feature-bullet">•</span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <div className="service-pricing">
-                <span className="price">Starting at ${service.pricing.starting}</span>
-                <span className="price-unit">{service.pricing.unit}</span>
+              
+              <div className="service-features">
+                <h4 className="features-title">What's Included:</h4>
+                <ul className="features-list">
+                  {service.features.map((feature, index) => (
+                    <li key={index} className="feature-item">
+                      <span className="feature-check">✓</span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <button className="btn-secondary service-btn" onClick={handleGetQuote}>Get Quote</button>
+              
+              <div className="service-footer">
+                <div className="service-pricing">
+                  <span className="price-label">Starting at</span>
+                  <span className="price">${service.pricing.starting}</span>
+                  <span className="price-unit">{service.pricing.unit}</span>
+                </div>
+                <button className="btn-secondary service-btn" onClick={handleGetQuote}>
+                  Get Quote
+                </button>
+              </div>
             </div>
           ))}
         </div>
