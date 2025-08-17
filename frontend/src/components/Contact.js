@@ -510,6 +510,77 @@ const Contact = () => {
           min-height: 100px;
         }
         
+        .file-input-container {
+          position: relative;
+        }
+        
+        .file-input {
+          position: absolute;
+          opacity: 0;
+          width: 100%;
+          height: 100%;
+          cursor: pointer;
+        }
+        
+        .file-input-label {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: var(--spacing-sm);
+          padding: 16px;
+          border: 2px dashed var(--silver-medium);
+          border-radius: 8px;
+          background: var(--silver-light);
+          color: var(--text-secondary);
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+        
+        .file-input-label:hover {
+          border-color: var(--primary-black);
+          background: var(--silver-shine);
+        }
+        
+        .uploaded-files {
+          margin-top: var(--spacing-sm);
+          display: flex;
+          flex-direction: column;
+          gap: var(--spacing-xs);
+        }
+        
+        .uploaded-file {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: var(--spacing-sm);
+          background: var(--silver-light);
+          border-radius: 6px;
+          border: 1px solid var(--silver-medium);
+        }
+        
+        .file-name {
+          font-size: 14px;
+          color: var(--text-primary);
+          flex: 1;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        
+        .remove-file-btn {
+          background: none;
+          border: none;
+          cursor: pointer;
+          color: var(--text-light);
+          padding: 2px;
+          border-radius: 4px;
+          transition: color 0.2s ease;
+        }
+        
+        .remove-file-btn:hover {
+          color: var(--primary-black);
+        }
+        
         .form-submit {
           width: 100%;
           margin-top: var(--spacing-md);
