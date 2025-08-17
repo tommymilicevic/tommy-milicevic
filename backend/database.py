@@ -167,7 +167,7 @@ class Database:
                         ],
                         "pricing": {
                             "starting": 45,
-                            "unit": "per visit"
+                            "unit": "starting price"
                         },
                         "duration": "1-2 hours",
                         "availability": "Spring to Fall",
