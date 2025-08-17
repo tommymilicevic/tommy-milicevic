@@ -355,13 +355,12 @@ const Services = () => {
         .services-cta {
           text-align: center;
           padding: var(--spacing-giant);
-          background: var(--bg-gradient-1);
+          background: linear-gradient(135deg, var(--primary-black) 0%, var(--silver-dark) 100%);
           color: var(--primary-white);
           border-radius: 24px;
           margin-top: var(--spacing-xl);
           position: relative;
           overflow: hidden;
-          box-shadow: 0 12px 40px rgba(37, 99, 235, 0.3);
         }
         
         .services-cta::before {
@@ -373,18 +372,6 @@ const Services = () => {
           height: 200%;
           background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
           animation: shine 4s infinite;
-        }
-        
-        .services-cta::after {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: radial-gradient(circle at 30% 30%, rgba(245, 158, 11, 0.2) 0%, transparent 50%),
-                      radial-gradient(circle at 70% 70%, rgba(5, 150, 105, 0.2) 0%, transparent 50%);
-          pointer-events: none;
         }
         
         @keyframes shine {
