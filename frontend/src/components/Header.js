@@ -1,37 +1,68 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'Services', href: '#services' },
-    { name: 'About', href: '#about' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Home', section: 'home' },
+    { name: 'Services', section: 'services' },
+    { name: 'About', section: 'about' },
+    { name: 'Testimonials', section: 'testimonials' },
+    { name: 'Contact', section: 'contact' }
   ];
+
+  const handleNavClick = (section) => {
+    if (location.pathname === '/') {
+      // If on homepage, scroll to section
+      const element = document.getElementById(section);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // If on another page, navigate to homepage with hash
+      navigate(`/#${section}`);
+      // After navigation, scroll to section
+      setTimeout(() => {
+        const element = document.getElementById(section);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+    setIsMenuOpen(false);
+  };
 
   const handleGetQuote = () => {
     navigate('/quote');
+    setIsMenuOpen(false);
+  };
+
+  const handleLogoClick = () => {
+    navigate('/');
   };
 
   return (
     <header className="header">
       <div className="container">
         <nav className="nav-wrapper">
-          <div className="logo">
+          <div className="logo" onClick={handleLogoClick}>
             <h2 className="heading-3">Aurex Exteriors</h2>
           </div>
           
           {/* Desktop Navigation */}
           <div className="nav-links desktop-nav">
             {navItems.map((item) => (
-              <a key={item.name} href={item.href} className="nav-link">
+              <button 
+                key={item.name} 
+                onClick={() => handleNavClick(item.section)}
+                className="nav-link"
+              >
                 {item.name}
-              </a>
+              </button>
             ))}
           </div>
           
@@ -50,14 +81,13 @@ const Header = () => {
         {isMenuOpen && (
           <div className="mobile-nav">
             {navItems.map((item) => (
-              <a 
+              <button 
                 key={item.name} 
-                href={item.href} 
+                onClick={() => handleNavClick(item.section)}
                 className="mobile-nav-link"
-                onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
-              </a>
+              </button>
             ))}
             <button className="btn-primary mobile-cta" onClick={handleGetQuote}>Get Quote</button>
           </div>
@@ -83,6 +113,15 @@ const Header = () => {
           justify-content: space-between;
         }
         
+        .logo {
+          cursor: pointer;
+          transition: opacity 0.2s ease;
+        }
+        
+        .logo:hover {
+          opacity: 0.8;
+        }
+        
         .logo h2 {
           color: var(--primary-black);
           margin: 0;
@@ -99,6 +138,10 @@ const Header = () => {
           text-decoration: none;
           font-weight: 500;
           transition: color 0.2s ease;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-size: 1rem;
         }
         
         .nav-link:hover {
@@ -127,6 +170,15 @@ const Header = () => {
           text-decoration: none;
           font-weight: 500;
           padding: var(--spacing-sm) 0;
+          background: none;
+          border: none;
+          cursor: pointer;
+          text-align: left;
+          font-size: 1rem;
+        }
+        
+        .mobile-nav-link:hover {
+          color: var(--silver-dark);
         }
         
         .mobile-cta {
