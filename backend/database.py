@@ -210,7 +210,7 @@ class Database:
                 }
             ],
             "features": [
-                "Licensed & Insured",
+                "Fully Insured",
                 "Same Day Service",
                 "100% Satisfaction Guarantee"
             ],
