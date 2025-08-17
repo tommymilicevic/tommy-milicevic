@@ -139,26 +139,11 @@ const Footer = () => {
           margin-bottom: var(--spacing-md);
         }
         
-        .footer-logo {
-          display: flex;
-          align-items: center;
-          gap: var(--spacing-sm);
-          margin-bottom: var(--spacing-md);
-        }
-        
-        .footer-logo-image {
-          height: 50px;
-          width: auto;
-          object-fit: contain;
-          filter: brightness(0) invert(1); /* Makes the logo white */
-          max-width: 150px;
-        }
-        
         .footer-title {
           color: var(--primary-white);
           font-size: 1.5rem;
           font-weight: 600;
-          margin: 0;
+          margin-bottom: var(--spacing-md);
         }
         
         .footer-subtitle {
