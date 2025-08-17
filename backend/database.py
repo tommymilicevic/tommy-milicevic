@@ -189,7 +189,7 @@ class Database:
                         ],
                         "pricing": {
                             "starting": 200,
-                            "unit": "per room"
+                            "unit": "starting price"
                         },
                         "duration": "1-3 days",
                         "availability": "Year-round",
