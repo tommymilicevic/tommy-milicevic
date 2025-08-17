@@ -9,6 +9,15 @@ import json
 import os
 from datetime import datetime
 import sys
+import io
+
+# Try to import PIL for image testing
+try:
+    from PIL import Image
+    PIL_AVAILABLE = True
+except ImportError:
+    PIL_AVAILABLE = False
+    print("Warning: PIL not available - some image upload tests will be skipped")
 
 # Get backend URL from frontend .env file
 def get_backend_url():
