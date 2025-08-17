@@ -273,10 +273,11 @@ const Quote = () => {
                   >
                     <option value="">Select a service</option>
                     <option value="pressure-washing">Pressure Washing</option>
-                    <option value="gardening">Gardening Services</option>
+                    <option value="gardening-services">Gardening Services</option>
                     <option value="rubbish-removal">Rubbish Removal</option>
                     <option value="gutter-cleaning">Gutter Cleaning</option>
-                    <option value="lawn-mowing">Lawn Mowing</option>
+                    <option value="lawn-mowing">Lawn Mowing & Care</option>
+                    <option value="painting-services">Painting Services</option>
                     <option value="multiple">Multiple Services</option>
                   </select>
                 </div>
