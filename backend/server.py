@@ -39,6 +39,13 @@ logger = logging.getLogger(__name__)
 @app.on_event("startup")
 async def startup_event():
     await database.connect()
+    
+    # Test email connection
+    if email_service.test_connection():
+        logger.info("Email service connection test successful")
+    else:
+        logger.warning("Email service connection test failed - email functionality may not work")
+    
     logger.info("Aurex Exteriors API started successfully")
 
 @app.on_event("shutdown")
