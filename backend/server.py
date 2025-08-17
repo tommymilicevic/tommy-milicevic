@@ -42,7 +42,7 @@ async def startup_event():
 @app.on_event("shutdown")
 async def shutdown_event():
     await database.close()
-    logger.info("CleanPro Services API shut down")
+    logger.info("Aurex Exteriors API shut down")
 
 # Health check endpoint
 @api_router.get("/")
